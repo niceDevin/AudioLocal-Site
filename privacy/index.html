@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'">
+<title>隐私政策 · NiceDevin AudioLocal</title>
+<meta name="description" content="NiceDevin AudioLocal 的隐私政策：应用在本机运行时接触哪些数据、保存在哪里，以及本网站的处理方式。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230F6CBD'/%3E%3Cg fill='%23fff'%3E%3Crect x='7' y='13' width='3' height='6' rx='1.5'/%3E%3Crect x='12.5' y='9' width='3' height='14' rx='1.5'/%3E%3Crect x='18' y='6' width='3' height='20' rx='1.5'/%3E%3Crect x='23.5' y='11' width='3' height='10' rx='1.5'/%3E%3C/g%3E%3C/svg%3E">
+<style>
+:root{
+  --font: "Segoe UI Variable Display", "Segoe UI Variable Text", "Segoe UI",
+          "Microsoft YaHei UI", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
+  --accent: #0F6CBD;
+  --accent-2: #3B8CE8;
+  --wrap: 820px;
+}
+@media (prefers-color-scheme: light){
+  :root{
+    --bg: #EFEFF1; --bg-2: #F7F7F8;
+    --card: #FFFFFF;
+    --stroke: rgba(0,0,0,.09);
+    --text: #18181A; --text-2: #45454A; --muted: #6B6B72;
+    --accent-text: #0B5CA8;
+    --glow: rgba(15,108,189,.14);
+    --shadow: 0 1px 2px rgba(0,0,0,.06), 0 10px 28px rgba(0,0,0,.05);
+    --rule: rgba(0,0,0,.07);
+  }
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --accent: #2F86D8; --accent-2: #63ADF5;
+    --bg: #17171A; --bg-2: #1D1D20;
+    --card: #232327;
+    --stroke: rgba(255,255,255,.075);
+    --text: #F1F1F3; --text-2: #C3C3C8; --muted: #93939B;
+    --accent-text: #8CBEFF;
+    --glow: rgba(47,134,216,.2);
+    --shadow: 0 1px 2px rgba(0,0,0,.35), 0 12px 32px rgba(0,0,0,.3);
+    --rule: rgba(255,255,255,.07);
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+body{
+  margin:0;
+  font-family:var(--font);
+  background:var(--bg);
+  color:var(--text);
+  font-size:15px;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+.mica{
+  position:fixed; inset:0; z-index:-1; pointer-events:none;
+  background:
+    radial-gradient(900px 520px at 78% -8%, var(--glow), transparent 68%),
+    radial-gradient(760px 460px at 8% 12%, rgba(120,120,140,.10), transparent 70%),
+    linear-gradient(180deg, var(--bg-2), var(--bg) 60%);
+}
+.wrap{max-width:var(--wrap); margin:0 auto; padding:28px 20px 64px}
+
+.top{
+  display:flex; justify-content:space-between; align-items:center;
+  gap:16px; padding-bottom:18px; border-bottom:1px solid var(--rule);
+  font-size:13.5px;
+}
+.top a{color:var(--text-2); text-decoration:none}
+.top a:hover{color:var(--accent-text)}
+
+header{padding:34px 0 8px}
+h1{
+  margin:0 0 10px; font-size:34px; line-height:1.25; font-weight:600;
+  letter-spacing:-.01em;
+}
+.meta{margin:0 0 14px; font-size:13.5px; color:var(--muted)}
+.lead{margin:0; font-size:15.5px; color:var(--text-2); max-width:66ch}
+
+section.card{
+  margin-top:26px; padding:26px 28px;
+  background:var(--card);
+  border:1px solid var(--stroke);
+  border-radius:10px;
+  box-shadow:var(--shadow);
+}
+section.card h2{
+  margin:0 0 6px; font-size:19px; font-weight:600; letter-spacing:-.005em;
+  color:var(--text);
+}
+section.card h2 .num{
+  display:inline-block; min-width:1.6em; color:var(--accent-text); font-variant-numeric:tabular-nums;
+}
+section.card p{margin:10px 0 0; color:var(--text-2)}
+section.card ul{margin:12px 0 0; padding-left:1.15em; color:var(--text-2)}
+section.card li{margin:7px 0}
+section.card code{
+  font-family:Consolas, "Cascadia Mono", ui-monospace, monospace;
+  font-size:13px;
+  background:var(--bg-2);
+  border:1px solid var(--rule);
+  border-radius:4px;
+  padding:1px 5px;
+  word-break:break-all;
+}
+.divider{
+  margin:44px 0 6px; border:0; border-top:1px solid var(--rule);
+}
+.lang-tag{
+  display:inline-block; font-size:12px; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--muted); margin-bottom:6px;
+}
+footer{
+  margin-top:34px; padding-top:18px; border-top:1px solid var(--rule);
+  font-size:13px; color:var(--muted); display:flex; flex-wrap:wrap; gap:14px; justify-content:space-between;
+}
+footer a{color:var(--accent-text); text-decoration:none}
+@media (max-width:720px){
+  h1{font-size:27px}
+  section.card{padding:20px 18px}
+}
+</style>
+</head>
+<body>
+<div class="mica" aria-hidden="true"></div>
+<main class="wrap">
+
+  <nav class="top">
+    <a href="../">返回首页</a>
+    <a href="#en" lang="en">English version</a>
+  </nav>
+
+  <header>
+    <h1>隐私政策</h1>
+    <p class="meta">NiceDevin AudioLocal · 生效日期 2026 年 11 月 14 日</p>
+    <p class="lead">这一页说明：本应用在你的电脑上运行时接触哪些数据、这些数据保存在哪里；以及本网站在浏览器中打开时的处理方式。</p>
+  </header>
+
+  <section class="card">
+    <h2><span class="num">1</span>适用范围</h2>
+    <p>本政策适用于 Windows 上的 NiceDevin AudioLocal（下称“本应用”）以及本网站。本应用是桌面工具，没有账号系统，也不要求注册或登录。</p>
+  </section>
+
+  <section class="card">
+    <h2><span class="num">2</span>本应用在本机处理的数据</h2>
+    <ul>
+      <li><strong>你选择的音频、视频文件与转换结果：</strong>只在你指定的位置读写。转换由随程序安装的本地组件完成，文件内容不会被发送到任何服务器。</li>
+      <li><strong>应用设置：</strong>语言、默认输出格式、码率与采样率、输出目录、右键菜单开关等，保存在本机 <code>%LOCALAPPDATA%\NiceDevin\AudioLocal</code> 目录下的设置文件。删除该目录即可清除这些设置。</li>
+      <li><strong>本地日志：</strong>程序出错时会把简短的技术信息写入同一目录下的日志文件，仅用于在本机排查问题，不随应用发送出去。</li>
+      <li><strong>资源管理器右键菜单：</strong>在设置中启用右键菜单后，本应用会为所选音频扩展名在当前用户注册表的 <code>HKCU\Software\Classes\SystemFileAssociations\.&lt;扩展名&gt;\shell\AudioLocal</code> 下写入菜单项，指向本机安装的程序。这些项只对当前用户和这台电脑生效；关闭开关后本应用会移除它们。</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2><span class="num">3</span>本应用不收集的信息</h2>
+    <p>本应用不收集姓名、邮箱、位置等个人信息，不使用第三方统计或推送组件，不采集设备标识、使用行为或崩溃转储；转换与日常使用过程中也不会在后台发出网络请求。</p>
+  </section>
+
+  <section class="card">
+    <h2><span class="num">4</span>本网站</h2>
+    <ul>
+      <li>本站是静态页面，不使用 Cookie，不接入第三方统计或广告脚本；页面所需的样式、脚本、图标都随页面本身提供，不从外部域名加载。</li>
+      <li>本站由 GitHub Pages 托管。托管方可能按其自身隐私声明记录访问日志（例如 IP 地址、浏览器类型、访问时间）；这些记录由托管方处理，本站无法读取，也不会用于识别个人。</li>
+      <li>你在本站选择的语言与主题偏好保存在浏览器本地存储（localStorage）中，用于下次打开时记住选择，不会上传。</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2><span class="num">5</span>儿童</h2>
+    <p>本应用是通用音频工具，不面向儿童设计，也不会有意收集儿童的信息。</p>
+  </section>
+
+  <section class="card">
+    <h2><span class="num">6</span>政策更新与联系</h2>
+    <p>本政策如有更新，会以新的生效日期发布在本页。对本政策或数据处理有疑问，可发邮件至 <a href="mailto:wangchun19901230@gmail.com" style="color:var(--accent-text);text-decoration:none">wangchun19901230@gmail.com</a>。</p>
+  </section>
+
+  <hr class="divider">
+
+  <header id="en" lang="en">
+    <span class="lang-tag">English</span>
+    <h1>Privacy Policy</h1>
+    <p class="meta">NiceDevin AudioLocal · Effective 14 November 2026</p>
+    <p class="lead">This page explains what data the app touches while running on your PC, where that data is stored, and how this website behaves when you open it in a browser.</p>
+  </header>
+
+  <section class="card" lang="en">
+    <h2><span class="num">1</span>Scope</h2>
+    <p>This policy covers NiceDevin AudioLocal for Windows (the “app”) and this website. The app is a desktop tool: it has no account system and requires no sign-in or registration.</p>
+  </section>
+
+  <section class="card" lang="en">
+    <h2><span class="num">2</span>Data the app handles on your device</h2>
+    <ul>
+      <li><strong>Audio and video files you select, and the converted output:</strong> read and written only at the locations you choose. Conversion is performed by a local component installed with the app; file contents are not sent to any server.</li>
+      <li><strong>App settings:</strong> interface language, default output format, bitrate and sample rate, output folder, context-menu switches and similar preferences are stored in a settings file under <code>%LOCALAPPDATA%\NiceDevin\AudioLocal</code>. Deleting that folder clears them.</li>
+      <li><strong>Local logs:</strong> when something fails, the app writes short technical details to a log file in the same folder, used only for troubleshooting on that machine. It is not transmitted anywhere.</li>
+      <li><strong>Explorer context menu:</strong> when you enable the context menu in settings, the app writes menu entries for the selected audio extensions under the current user's registry at <code>HKCU\Software\Classes\SystemFileAssociations\.&lt;extension&gt;\shell\AudioLocal</code>, pointing at the locally installed program. These entries apply to the current user on this PC only, and are removed when you turn the switch off.</li>
+    </ul>
+  </section>
+
+  <section class="card" lang="en">
+    <h2><span class="num">3</span>What the app does not collect</h2>
+    <p>The app does not collect personal information such as your name, email address or location, does not include third-party analytics or push components, and does not gather device identifiers, usage data or crash dumps. It makes no background network requests while converting or during normal use.</p>
+  </section>
+
+  <section class="card" lang="en">
+    <h2><span class="num">4</span>This website</h2>
+    <ul>
+      <li>This site is static. It sets no cookies and loads no third-party analytics or advertising scripts; the styles, scripts and icons it needs are shipped with the pages themselves and are not fetched from other domains.</li>
+      <li>The site is hosted on GitHub Pages. The host may keep access logs (for example IP address, browser type, time of visit) under its own privacy statement. Those records are handled by the host; this site cannot read them and does not use them to identify anyone.</li>
+      <li>Your language and theme choices are stored in your browser's local storage (localStorage) so the site can remember them next time. They are never uploaded.</li>
+    </ul>
+  </section>
+
+  <section class="card" lang="en">
+    <h2><span class="num">5</span>Children</h2>
+    <p>The app is a general-purpose audio tool. It is not designed for children and does not knowingly collect information from children.</p>
+  </section>
+
+  <section class="card" lang="en">
+    <h2><span class="num">6</span>Changes and contact</h2>
+    <p>If this policy changes, the new version will be published on this page with a new effective date. Questions about this policy or data handling can be sent to <a href="mailto:wangchun19901230@gmail.com" style="color:var(--accent-text);text-decoration:none">wangchun19901230@gmail.com</a>.</p>
+  </section>
+
+  <footer>
+    <span>NiceDevin AudioLocal · 隐私政策 / Privacy Policy</span>
+    <span><a href="../">nicedevin.github.io/AudioLocal-Site</a></span>
+  </footer>
+
+</main>
+</body>
+</html>
