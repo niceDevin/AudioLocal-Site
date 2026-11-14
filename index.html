@@ -1,981 +1,117 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-Hans">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NiceDevin音频转换器 — Windows 本地音频格式转换</title>
-<meta name="description" content="NiceDevin音频转换器是一个 Windows 桌面工具：mp3、flac、wav、m4a、ogg、opus 六种输出，转换在你的电脑上完成。">
-<!-- 本页面不加载任何外部资源，也不允许任何网络请求 -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src data:; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src 'none'; base-uri 'none'; form-action 'none'">
-<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<title>NiceDevin音频转换器 — 选择语言 / Choose a language</title>
+<meta name="description" content="NiceDevin音频转换器官网：按浏览器语言进入中文或英文页面。">
 <style>
-/* ===== 基础变量：WinUI 3 的 Fluent 色板，跟随系统深浅色 ===== */
 :root{
-  --font: "Segoe UI Variable Display", "Segoe UI Variable Text", "Segoe UI",
-          "Microsoft YaHei UI", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
-  --accent: #0F6CBD;
-  --accent-2: #3B8CE8;
-  --radius-card: 10px;
-  --radius-ctl: 6px;
-  --shell-max: 1180px;
-}
-@media (prefers-color-scheme: light){
-  :root{
-    --bg: #EFEFF1;
-    --bg-2: #F7F7F8;
-    --card: rgba(255,255,255,.78);
-    --card-solid: #FFFFFF;
-    --stroke: rgba(0,0,0,.09);
-    --stroke-strong: rgba(0,0,0,.16);
-    --text: #18181A;
-    --text-2: #45454A;
-    --muted: #6B6B72;
-    --hover: rgba(0,0,0,.045);
-    --accent-text: #0B5CA8;
-    --glow: rgba(15,108,189,.14);
-    --shadow: 0 1px 2px rgba(0,0,0,.07), 0 8px 24px rgba(0,0,0,.06);
-  }
+  --bg:#f3f5f8; --card:rgba(255,255,255,.72); --line:rgba(15,30,50,.12);
+  --text:#16202b; --muted:rgba(22,32,43,.62);
+  --accent:#0F6CBD; --accent-2:#3B8CE8; --glow:rgba(15,108,189,.16);
+  color-scheme:light dark;
 }
 @media (prefers-color-scheme: dark){
   :root{
-    --accent: #2F86D8; --accent-2: #63ADF5;
-    --bg: #17171A;
-    --bg-2: #1D1D20;
-    --card: rgba(255,255,255,.045);
-    --card-solid: #232327;
-    --stroke: rgba(255,255,255,.075);
-    --stroke-strong: rgba(255,255,255,.16);
-    --text: #F1F1F3;
-    --text-2: #C3C3C8;
-    --muted: #93939B;
-    --hover: rgba(255,255,255,.06);
-    --accent-text: #8CBEFF;
-    --glow: rgba(47,134,216,.2);
-    --shadow: 0 1px 2px rgba(0,0,0,.35), 0 12px 32px rgba(0,0,0,.3);
+    --bg:#11151b; --card:rgba(28,34,43,.62); --line:rgba(255,255,255,.12);
+    --text:#eef2f7; --muted:rgba(238,242,247,.62);
+    --accent:#2F86D8; --accent-2:#63ADF5; --glow:rgba(47,134,216,.22);
   }
 }
-html[data-theme="light"]{
-  --bg: #EFEFF1; --bg-2: #F7F7F8; --card: rgba(255,255,255,.78); --card-solid: #FFFFFF;
-  --stroke: rgba(0,0,0,.09); --stroke-strong: rgba(0,0,0,.16);
-  --text: #18181A; --text-2: #45454A; --muted: #6B6B72; --hover: rgba(0,0,0,.045);
-  --accent-text: #0B5CA8; --glow: rgba(15,108,189,.14);
-  --shadow: 0 1px 2px rgba(0,0,0,.07), 0 8px 24px rgba(0,0,0,.06);
-}
-html[data-theme="dark"]{
-  --accent: #2F86D8; --accent-2: #63ADF5;
-  --bg: #17171A; --bg-2: #1D1D20; --card: rgba(255,255,255,.045); --card-solid: #232327;
-  --stroke: rgba(255,255,255,.075); --stroke-strong: rgba(255,255,255,.16);
-  --text: #F1F1F3; --text-2: #C3C3C8; --muted: #93939B; --hover: rgba(255,255,255,.06);
-  --accent-text: #8CBEFF; --glow: rgba(47,134,216,.2);
-  --shadow: 0 1px 2px rgba(0,0,0,.35), 0 12px 32px rgba(0,0,0,.3);
-}
-
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-@media (prefers-reduced-motion: reduce){
-  html{scroll-behavior:auto}
-  *{animation-duration:.001ms !important; transition-duration:.001ms !important}
-}
-
+html,body{height:100%}
 body{
-  margin:0;
-  font-family:var(--font);
-  background:var(--bg);
-  color:var(--text);
-  font-size:15px;
-  line-height:1.65;
-  -webkit-font-smoothing:antialiased;
-  text-rendering:optimizeLegibility;
-  overflow-x:hidden;
+  margin:0; min-height:100%;
+  display:grid; place-items:center; padding:24px;
+  font-family:"Segoe UI Variable Display","Segoe UI Variable Text","Segoe UI","Microsoft YaHei UI","Microsoft YaHei",system-ui,sans-serif;
+  color:var(--text); background:var(--bg);
+  background-image:
+    radial-gradient(120% 90% at 12% 6%, var(--glow), transparent 62%),
+    radial-gradient(100% 80% at 88% 96%, rgba(59,140,232,.10), transparent 60);
 }
-
-/* ===== Mica 背景：低饱和底 + 极淡的品牌光，纯 CSS 无外链 ===== */
-.mica{
-  position:fixed; inset:0; z-index:-1; pointer-events:none;
-  background:
-    radial-gradient(900px 520px at 78% -8%, var(--glow), transparent 68%),
-    radial-gradient(760px 460px at 8% 12%, rgba(120,120,140,.10), transparent 70%),
-    linear-gradient(180deg, var(--bg-2), var(--bg) 46%, var(--bg));
+.card{
+  width:min(560px,100%); padding:34px 32px 30px;
+  background:var(--card); border:1px solid var(--line); border-radius:14px;
+  backdrop-filter:blur(22px) saturate(140%);
+  box-shadow:0 18px 48px rgba(10,25,45,.10);
 }
-.mica::after{
-  content:""; position:absolute; inset:0; opacity:.35;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.16'/%3E%3C/svg%3E");
+.ico{
+  width:44px; height:44px; border-radius:10px; display:grid; place-items:center;
+  background:linear-gradient(140deg,var(--accent),var(--accent-2));
+  box-shadow:0 6px 16px var(--glow); margin-bottom:18px;
 }
-
-/* ===== 顶部栏：WinUI NavigationView 的气韵，sticky 不 fixed ===== */
-.appbar{
-  position:sticky; top:0; z-index:50;
-  backdrop-filter:blur(30px) saturate(150%);
-  -webkit-backdrop-filter:blur(30px) saturate(150%);
-  background:color-mix(in srgb, var(--bg) 72%, transparent);
-  border-bottom:1px solid var(--stroke);
-}
-@supports not (background: color-mix(in srgb, red 50%, transparent)){
-  .appbar{background:var(--bg)}
-}
-.appbar-inner{
-  max-width:var(--shell-max); margin:0 auto;
-  padding:0 24px; height:56px;
-  display:flex; align-items:center; gap:16px;
-}
-.brand{
-  display:flex; align-items:center; gap:10px;
-  text-decoration:none; color:var(--text); flex-shrink:0;
-}
-.brand img{width:24px; height:24px; display:block}
-.brand-name{font-size:15px; font-weight:600; letter-spacing:-.01em}
-.appbar nav{
-  display:flex; gap:2px; margin-left:auto;
-}
-.appbar nav a{
-  color:var(--text-2); text-decoration:none; font-size:13px;
-  padding:6px 12px; border-radius:var(--radius-ctl); white-space:nowrap;
-}
-.appbar nav a:hover{background:var(--hover); color:var(--text)}
-
-/* 语言切换：和 WinUI 设置里的分段控件一致 */
-.lang-seg, .theme-seg{
-  display:flex; padding:2px; gap:2px;
-  border:1px solid var(--stroke); border-radius:8px;
-  background:var(--card); flex-shrink:0;
-}
-.lang-seg button, .theme-seg button{
-  appearance:none; border:0; background:transparent; color:var(--muted);
-  border-radius:5px; cursor:pointer;
-  display:grid; place-items:center; padding:0;
-}
-.lang-seg button{
-  font-family:var(--font); font-size:11px; font-weight:600;
-  height:26px; padding:0 8px; letter-spacing:.02em;
-}
-.theme-seg button{width:30px; height:26px}
-.lang-seg button[aria-pressed="true"], .theme-seg button[aria-pressed="true"]{
-  background:var(--hover); color:var(--text);
-}
-.lang-seg button:hover, .theme-seg button:hover{color:var(--text)}
-.theme-seg svg{width:14px; height:14px}
-.lang-seg button:focus-visible, .theme-seg button:focus-visible{
-  outline:2px solid var(--accent); outline-offset:1px;
-}
-
-/* ===== 通用容器 ===== */
-.shell{max-width:var(--shell-max); margin:0 auto; padding:0 24px}
-section{padding:88px 0}
-section + section{border-top:1px solid var(--stroke)}
-.eyebrow{
-  font-size:12px; letter-spacing:.08em; color:var(--muted);
-  margin:0 0 14px;
-  display:flex; align-items:center; gap:8px;
-}
-.eyebrow::before{
-  content:""; width:14px; height:2px; border-radius:2px;
-  background:linear-gradient(90deg, var(--accent), var(--accent-2));
-}
-h2{
-  font-size:30px; line-height:1.25; letter-spacing:-.022em;
-  font-weight:600; margin:0 0 12px;
-}
-.lede{color:var(--text-2); max-width:min(34em, 100%); margin:0; text-wrap:pretty}
-
-/* ===== Hero ===== */
-.hero{padding:72px 0 96px}
-.hero-grid{
-  display:grid; grid-template-columns:minmax(0,1fr) minmax(0,480px);
-  gap:56px; align-items:center;
-}
+.ico svg{width:24px; height:24px; fill:#fff}
 h1{
-  font-size:clamp(32px, 4vw, 50px); line-height:1.16;
-  letter-spacing:-.028em; font-weight:600; margin:0 0 18px;
-  max-width:min(20em, 100%); text-wrap:balance;
+  margin:0 0 6px; font-size:22px; line-height:1.3; letter-spacing:-.01em; font-weight:600;
 }
-h1 em{
-  font-style:normal;
-  background:linear-gradient(100deg, var(--accent-2), var(--accent));
-  -webkit-background-clip:text; background-clip:text;
-  -webkit-text-fill-color:transparent;
+.sub{
+  margin:0 0 26px; font-size:13.5px; line-height:1.6; color:var(--muted);
 }
-.hero-sub{color:var(--text-2); max-width:min(36em, 100%); margin:0 0 26px; font-size:16px; text-wrap:pretty}
-.hero-points{display:flex; flex-direction:column; gap:9px; margin:0 0 30px; padding:0; list-style:none}
-.hero-points li{display:flex; align-items:center; gap:9px; font-size:13.5px; color:var(--text-2)}
-.hero-points li .dot{
-  width:5px; height:5px; border-radius:50%;
-  background:var(--accent); flex-shrink:0;
+.links{display:flex; flex-wrap:wrap; gap:10px}
+a{
+  flex:1 1 180px; min-width:0; height:44px; padding:0 18px;
+  display:inline-flex; align-items:center; justify-content:space-between; gap:10px;
+  text-decoration:none; font-size:14px; font-weight:600;
+  border-radius:8px; border:1px solid var(--line); color:var(--text);
+  background:rgba(255,255,255,.06); transition:border-color .12s, background .12s;
 }
-.store-badge{
-  display:inline-flex; align-items:center; gap:10px;
-  padding:9px 15px; border-radius:var(--radius-ctl);
-  border:1px solid var(--stroke); background:var(--card);
-  font-size:13px; color:var(--text-2);
+a:first-child{
+  background:linear-gradient(140deg,var(--accent),var(--accent-2));
+  border-color:transparent; color:#fff;
 }
-.store-badge svg{width:15px; height:15px; color:var(--accent-text)}
-.store-badge b{color:var(--text); font-weight:600}
-
-/* ===== WinUI 窗口模拟 ===== */
-.window{
-  border:1px solid var(--stroke-strong);
-  border-radius:12px; overflow:hidden;
-  background:var(--card-solid);
-  box-shadow:var(--shadow);
-  font-size:13px;
+a:hover{border-color:var(--accent)}
+a:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+.arrow{opacity:.8; font-weight:400}
+.foot{
+  margin:22px 0 0; font-size:12px; line-height:1.6; color:var(--muted);
 }
-.titlebar{
-  display:flex; align-items:center; gap:8px;
-  height:34px; padding:0 0 0 12px;
-  background:color-mix(in srgb, var(--card-solid) 84%, var(--bg));
-  border-bottom:1px solid var(--stroke);
-  color:var(--text-2); font-size:12px;
-}
-.titlebar .wicon{width:16px; height:16px; display:block}
-.titlebar .wtitle{font-weight:600; color:var(--text)}
-.titlebar .wsys{margin-left:auto; display:flex; height:100%}
-.titlebar .wsys span{
-  width:44px; display:grid; place-items:center; color:var(--muted);
-}
-.titlebar .wsys span:hover{background:var(--hover); color:var(--text)}
-.titlebar .wsys span svg{width:10px; height:10px}
-
-.wbody{padding:14px 14px 16px}
-.dropzone{
-  border:1px dashed var(--stroke-strong); border-radius:8px;
-  padding:18px 14px; text-align:center; color:var(--muted);
-  background:color-mix(in srgb, var(--card-solid) 92%, var(--bg));
-  margin-bottom:12px;
-}
-.dropzone .dz-icon{width:20px; height:20px; margin:0 auto 6px; color:var(--text-2)}
-.dropzone strong{color:var(--text); font-weight:600}
-
-.rows{display:flex; flex-direction:column; gap:6px; margin-bottom:14px}
-.row{
-  display:grid; grid-template-columns:minmax(0,1fr) 46px 82px;
-  gap:8px; align-items:center;
-  padding:8px 10px; border-radius:6px;
-  background:var(--card); border:1px solid var(--stroke);
-}
-.row .fname{
-  overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
-  color:var(--text); font-size:12.5px;
-}
-.row .fdur{color:var(--muted); font-size:11.5px; text-align:right}
-.row .fstate{font-size:11.5px; text-align:right; color:var(--muted)}
-.row.done .fstate{color:var(--text-2)}
-.mini-bar{height:3px; border-radius:2px; background:var(--stroke); overflow:hidden; margin-top:5px}
-.mini-bar i{display:block; height:100%; width:0%; background:linear-gradient(90deg, var(--accent-2), var(--accent)); transition:width .3s linear}
-
-.ctlrow{display:flex; align-items:center; gap:8px}
-.chips{display:flex; flex-wrap:wrap; gap:5px; min-width:0}
-.chip{
-  appearance:none; cursor:pointer;
-  border:1px solid var(--stroke); background:var(--card);
-  color:var(--text-2); font-family:var(--font); font-size:11.5px;
-  padding:4px 10px; border-radius:5px;
-}
-.chip[aria-pressed="true"]{
-  color:var(--accent-text); border-color:color-mix(in srgb, var(--accent) 55%, transparent);
-  background:color-mix(in srgb, var(--accent) 12%, transparent);
-}
-.chip:focus-visible{outline:2px solid var(--accent); outline-offset:1px}
-
-.btn-run{
-  appearance:none; cursor:pointer; margin-left:auto;
-  border:0; border-radius:var(--radius-ctl);
-  font-family:var(--font); font-size:12.5px; font-weight:600;
-  color:#fff; padding:8px 16px;
-  background:linear-gradient(180deg, var(--accent-2), var(--accent));
-  box-shadow:0 1px 2px rgba(0,0,0,.18);
-  transition:filter .15s ease;
-}
-.btn-run:hover{filter:brightness(1.06)}
-.btn-run:focus-visible{outline:2px solid var(--text); outline-offset:2px}
-
-.demo-note{
-  margin:10px 0 0; font-size:11.5px; color:var(--muted);
-  display:flex; align-items:flex-start; gap:6px;
-}
-.demo-note svg{width:12px; height:12px; margin-top:3px; color:var(--text-2); flex-shrink:0}
-
-/* ===== 功能网格 ===== */
-.features{
-  display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:16px;
-  margin-top:34px;
-}
-.feat{
-  padding:22px 20px; border-radius:var(--radius-card);
-  border:1px solid var(--stroke); background:var(--card);
-}
-.feat .fi{
-  width:26px; height:26px; display:grid; place-items:center;
-  border-radius:7px; margin-bottom:14px;
-  background:color-mix(in srgb, var(--accent) 13%, transparent);
-  color:var(--accent-text);
-}
-.feat .fi svg{width:15px; height:15px}
-.feat h3{font-size:15.5px; font-weight:600; margin:0 0 6px; letter-spacing:-.01em}
-.feat p{font-size:13px; color:var(--text-2); margin:0; line-height:1.6}
-
-/* ===== 格式 ===== */
-.format-grid{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:16px; margin-top:34px}
-.format-card{
-  border:1px solid var(--stroke); border-radius:var(--radius-card);
-  background:var(--card); padding:22px 20px;
-}
-.format-card h3{font-size:14px; font-weight:600; margin:0 0 4px}
-.format-card .fc-sub{font-size:12px; color:var(--muted); margin:0 0 14px}
-.tags{display:flex; flex-wrap:wrap; gap:6px}
-.tag{
-  font-size:12px; padding:3px 9px; border-radius:5px;
-  border:1px solid var(--stroke); color:var(--text-2);
-  background:color-mix(in srgb, var(--card-solid) 60%, transparent);
-}
-.tags.out .tag{
-  color:var(--accent-text); border-color:color-mix(in srgb, var(--accent) 40%, transparent);
-  background:color-mix(in srgb, var(--accent) 9%, transparent);
-  font-weight:600;
-}
-
-/* ===== 隐私 ===== */
-.priv-grid{display:block; max-width:900px}
-.priv-list{display:flex; flex-direction:column; gap:0; margin:0}
-.priv-item{
-  display:grid; grid-template-columns:26px minmax(0,1fr); gap:12px;
-  padding:16px 0; border-bottom:1px solid var(--stroke);
-}
-.priv-item:first-child{padding-top:0}
-.priv-item:last-child{border-bottom:0; padding-bottom:0}
-.priv-item .pi{width:26px; height:26px; display:grid; place-items:center; color:var(--accent-text)}
-.priv-item .pi svg{width:16px; height:16px}
-.priv-item h3{font-size:14px; font-weight:600; margin:0 0 3px}
-.priv-item p{font-size:12.8px; color:var(--text-2); margin:0}
-.path-chip{
-  display:inline-block; margin-top:7px; font-size:11.5px;
-  padding:3px 8px; border-radius:5px; color:var(--text-2);
-  background:var(--hover); border:1px solid var(--stroke);
-  font-family:Consolas, "Cascadia Mono", ui-monospace, monospace;
-  word-break:break-all;
-}
-.priv-note{margin-top:26px; padding-top:22px; border-top:1px solid var(--stroke)}
-.priv-note h3{font-size:14px; font-weight:600; margin:0 0 8px}
-.priv-note p{font-size:12.8px; color:var(--text-2); margin:0}
-.checkline{display:flex; align-items:center; gap:7px; font-size:12px; color:var(--muted); margin-top:12px}
-.checkline svg{width:13px; height:13px; color:var(--accent-text); flex-shrink:0}
-
-/* ===== 关于 ===== */
-.about-wrap{margin-top:34px; max-width:900px}
-.meta-table{width:100%; border-collapse:collapse; table-layout:fixed}
-.meta-table col.c1{width:26%}
-.meta-table col.c2{width:74%}
-.meta-table td{
-  padding:11px 0; border-bottom:1px solid var(--stroke);
-  font-size:13px; vertical-align:top;
-}
-.meta-table td:first-child{color:var(--muted); padding-right:16px}
-.meta-table tr:last-child td{border-bottom:0}
-.meta-table td:last-child{color:var(--text-2); word-break:break-word}
-
-footer{
-  border-top:1px solid var(--stroke);
-  padding:34px 0 46px;
-}
-footer .shell{display:flex; flex-wrap:wrap; gap:10px 22px; align-items:center; justify-content:space-between}
-footer p{margin:0; font-size:12px; color:var(--muted)}
-footer .fnote{display:flex; align-items:center; gap:6px}
-footer .fnote svg{width:12px; height:12px; color:var(--accent-text)}
-
-/* ===== 响应式 ===== */
-@media (max-width:980px){
-  .hero-grid{grid-template-columns:minmax(0,1fr); gap:40px}
-  .window{max-width:100%; width:100%}
-  .features{grid-template-columns:repeat(2, minmax(0,1fr))}
-  .format-grid{grid-template-columns:minmax(0,1fr)}
-  .about-wrap{max-width:100%}
-}
-@media (max-width:760px){
-  .appbar nav{display:none}
-  .appbar-inner{justify-content:space-between}
-  .seg-group{margin-left:auto; display:flex; gap:8px}
-}
-@media (max-width:640px){
-  .shell{padding:0 18px}
-  .appbar-inner{padding:0 18px; gap:10px}
-  .lang-seg button{height:24px; padding:0 7px}
-  .theme-seg button{width:26px; height:24px}
-  h1{font-size:29px; max-width:none; letter-spacing:-.02em}
-  h2{font-size:22px}
-  .hero-sub{font-size:14.5px}
-  section{padding:56px 0}
-  .hero{padding:40px 0 56px}
-  .features{grid-template-columns:minmax(0,1fr)}
-  .row{grid-template-columns:minmax(0,1fr) 34px}
-  .row .fstate{display:none}
-  .ctlrow{flex-wrap:wrap}
-  .btn-run{margin-left:0; width:100%; text-align:center}
-  .titlebar .wsys span{width:34px}
-  .meta-table col.c1{width:34%}
-}
-/* 滚动揭示：一次编排，不是每块各自抖动 */
-.reveal{opacity:0; transform:translateY(10px); transition:opacity .55s ease, transform .55s ease}
-.reveal.in{opacity:1; transform:none}
-@media (prefers-reduced-motion: reduce){
-  .reveal{opacity:1; transform:none}
+@media (max-width:460px){
+  .card{padding:26px 20px 24px; border-radius:12px}
+  h1{font-size:19px}
+  a{flex:1 1 100%}
 }
 </style>
 </head>
 <body>
-<div class="mica" aria-hidden="true"></div>
 
-<!-- ===== 顶栏 ===== -->
-<header class="appbar">
-  <div class="appbar-inner">
-    <a class="brand" href="#top">
-      <img class="brand-ico" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAACZnSURBVHhe7ZsHVJXXtrZ3pXfpVYqUTS/Sm4AidsUKiBQpCqL0DoKI3dh7bzEmJjFqTDQmJjG92qMiFkRFNHbR5OQ8//g+jPeE+5//3JJ77v3HuO8Yc3xbB5u93nfONdecc20kkv/FPxfFC7ZpxaQ2WfbLWOUcmbbcIzx1iWe/5FecQ4fVWyycsVCj58//f436+rWaQ6ZuDOuXsaqkb/KKXX7jln/jOXbFddfEJY9dRi7+zWnEYhyHLcRhyLzf7IfMeeQwdN41h4TZXzolNG51GdI0zT22IWD0aFdlz9/7PxrUSKTDc9cNiMzYtDFw4pqrnknrcBm3HpvEdViMXInpqJWYjFmNybhVGI9fTa+xKzEcuRSjoUswHLgQw7gFGMfNx2zAfMzjGrGMq7toHVu3yjGmMrrnZ/2PQnFxsdaQvI1ToyZvOBGYvhm3lC2Yj12LedomnKveImz9xww/dJKUb64w8exNJrTcZuTlToZcvsOAi7fpd+o6YZ+ex+vVL+jd/DYmaWvQiW9GL6qJXjHzMY1rwiym9jvz6LLsIUOGaPb8/P9WjJy2JTMya9NF/4zt9B6/AfO0zfjNeY/kIz9Rff0esx4+Y8bN+6ScusaQI6cJ3/0FvuuP4bbiMC7L3sd1zVHcd3yG3/snCPnxKrHX75Fw+yHRZ67jseM4xnkb0Y5rQjd8JkbRTfSKrLxgHVGU2XMd/3SMnbI2IC5306eBkwXi67HM3krCti9ouHKHefe6mPpjG9GbPsaxbBcmycsxGjoP4/jZmPZvwix2FqaxjZjEzMS4Xz1GUXXoR9ejG9eA/rD5mOZvxGnN+wR/e4nYWw8IPdGG7dx9aMc3oh1Wg2HUTIxDiz+xCkoP7LmufwqGTN1YHp658RfXiZsxT11H3MZPaL7xgPmdjxjx1rfYFu7AaMRizAc2YzuwGfvBc+g9eC52Q+ZhN3gOdgnN2CQ0Y50wG6uBs7GMn4Vl/wbM4uoxia7BKLQC3aAyNCOqMUhdgcv2T4lqv0dYSweWja+jHl6DdnA1BiGlv1qE5lf2XN9/GfLzl+oOyN6wN3DyNmzGrsKt7m1mttxm2f0nDNz1OabpazAZNBf7ofNxGrEQh2ELxdeiDZ4nkv7drAfOFs0qvgnLAbOwiGvAPHYmZjH1GPerxTi6ml4RlegHl6LRtwitwbOxX3OY6NsPCfyuFb3UZagHlKMbUYtRcMHbvrGxej3X+6diYvYSm7isjd/7pm/FfNwK4rd/xuqnvzDlq1Ys8rdinDAHh6Hz6TN8IU4jFonmOHwhDkMXiOTtEub8gbxA3GrAC/L9GzGLa8Asdiam0XWYRNViEtUtgGFEBYbh5eiFlKDhW4jmyHm4Hz5Jv/tPsV16EEVIJdqhNRgFTftB5TfGpue6/xQkTVlsH5O18ZJHymYsU9eT8fF5lj37hcA1R9AdvkgMa6fhC0TCvxMXTPB87yHzsB3UTf53r/9O+qXFNmAeMxOzfvWYRtdiElmNcXilaIZh5RiGlotPg5BSdAJmIA8oxqT2NeLuPcXj8AkU0TVoB5Zj2De/1dp3hEPP9f+nkFmwxLRfxroL7kmbsMzYTP7pdhruPMauYjfGCc04Dp2H4wiB/AIchv3RBAHsBs996fnfw91yQGN3yIth34B5v3rMouowfeF5k6gqkXyvsIpu4qFloumHlKInWFARSp98NMcuILilA98fr6AW34BGYDkGffNbHfzHWffk8R9CXV2denTGqq/ckzeI5AsudlLa/jPGORswH9iE4/D5OAmeHjIHq4FNWA0USArhLSS2Jiz6N2HevxHT2JmYxNTTS0hwkTUYRlZj+OJpFFkpHG2YRFRiElmJcWQVxhEVInnBjELLRTMUBShBL7gY3ZAidIIKUffJRxFbi+/3lwlouYVaQiOafcsxCJh6IiRkqE5PPv9uRE9atsNn4mYsk9aSdbqd6W13MU5fg+XAJhyGCYluAVbxzfQeuZiwqdsIyd1KSE63BedsITh7K0FZW+mbuQm/9A34pW3AP014rscndT3uKetwHrcKm2GL6RU3G72wCvSCijEMLsIopBSjkDIMQ0oxDC7FIKQM/aAi9AIL0QsqRDeoEO2g6aj75aGIrsbvm0v4n2tD0b8eraBK9H0z3+zJ59+FmNRl2f6pm8QSduwH5yj/+TG9MtdgMaCR3kPniAIIHg/MXM/GIy1sO9rBmndvsuLATZYduMGS/Td5Zf9NFu+/xYK3b9K89wZNb9yk4fV26l69TvWuG5Rsa2PqusukLT/PqLkniCj5hD6pezCIfwWtkEp0AgrQD5yOQXAx+kEl3eQDC8U8oPDJQ+49FZnvVOQeucijq+l79jrux88hCylDO7gUU/+UGT15/ZsQmzTHPiB5xROr4csIX/sx9c9/xbZ0J2Zxs+g9ZA69h80Rn+YJ81ny9nn2ffmANz6/zxtfPWbHZ49Y/9F9Vn/4gNUfPWTNx49Yc+wxKz96zKIjj5hz6CGNBx4w6+BDZr5zn4o3Oil69RbTtraTveEaKStbiW86g+e0jzEYvhn1kBp0/PLQ6zsDvcAitAJmYBFdQVTqfIbkLiF+8gKCxjei5pWLcsgsojoeYL/+feR+xej2zX9u5j3MrSe/f4jAsYsOuo5bi8P0nZQ+fo7v6qMYxTViN7iZ3kPn4jB0LnYJs7EdtYJZu65w4JtHfN76F9498wu7vn3Oui+eseKzLpZ99oylnz1nyfHnLPz0GXOPPafh6DOqDndR8X4X5e8+pXD/Iwrfvk/RW/cofuseRXvvUrS7g5xN1xky/wJ98o6jOXAt6v7T0fOfhqb/DKxjKihs3kFR83ZiU5oYlf8KOn3zkHtMpde0DcQ/foZhzko0/Msw8Jt8rCe//yfCR8+P95ywGrNRy0g5cZ2R31xGL2EOtgObsB3cjK0QAWI1NxvLYcsp3dDCvm+ecOSnv7D1my4Wf/yU5mPPqD36jLLDTyk73MX0Q0/IO/iIqQeekLX/Cen7HpP85iPGvv6Aka/eY9iOnxm+4y6jtt8laeddcvbco2DvfQp23yV9w3Wims9jNOEdlAEVaPtORbdvEZo+eej456HhMwWT0Olo+ueh6Z+PxDsft92fE3bhBvLwCrQCSzD3TRnVk+ffhe+o+V/ajViO1/x3yXrUhbmQ8WMbsR00G7tBzS/NNqEJi6FLKVx3kV2fPWLviV9ZcryLOoH40S4KDneR/V4Xk997RtrBpyTte8LYfU9JfOsJo/Y+ZtCeB/Tf/YCYXQ+I2H6P8M0/E7K+k/C1HfTbcJv4LbcZvb2TybvvMuXVToYsacU09QPkgTVoeWWj6VeAlmj5qPtORUsQIGCq+Fo4GSKv3cV68TsofIrR85l8ZqREIuvJ9V8hfNSsWFXiEkwTlzHuUieBr3+BQb96rOIbsRYi4IXZiAXNLMyHvELemvNs/vgRW779hYaPnlB0uIu8w11kHupi0qFnJL/7jPEHu0jc18XgfU8Z+GYXA994Suyex4TtekTwjkcEbX+E36b7eK69i+fqTrxWd+C1+ha+K9qJXHOTsdvvkLn7LsNXtmGe8REyvzK0vDLQ8i9A0y8Pdd8pqPnkiia8lnnkYjHrDSJvPkApNFABRRj9W6LAe0TzPpvBS0TvT/j5CUYpy4U+HKv+M7Ee0Ih1fCM2AxqxGdiEdf8GzAe9Qu6q86z+8CFrvv6Vig+fMvX9Z2S+94yUg89Ievc5E99/zsiDvxL77m+EH/qN4AO/EfTOL/R9+xe8X3+Oz84uvLc+RrXhPi7r7uGy+mf6rLiN0/Kb9Fl6A9cl7fgtbydh820m7brLkBXXMJz4HnKPKWh4ZKIdkI+m7xQ0fXLR9s1F0zcHDb8pKMLLCb10m96rDyH3KULf5x/kgqhx9XbOQ+Y+N05YxJAfr9H3wA/oR9ZiGVOLZVw9Vv0bRBOFGNCIVWw9ZgmLyV55kaVHHrD0i18o/eAZWe89J+3Qc8YdeM7Yg78w8uAzvD97hu1HndgfvoXL0U6cP+ig95FbmB66g96+R+i/9iumG7uwW30Ph5V3sV3SgeWiG5gtasdq4XV6L7yGx9I2BqzvIHnXXSIWXUU5aBsypyQM++aRVrmZrNptZFVvJGbibBQeWWIU2C7aT3BrB/LIKrR8p/5m5zvOtSfvl/AaNqvQYdgybKZuY+Sdx5jM2CJWZhYxNVjG1GMVN/OlCEJEWParxSR+EalLzjH33XssOP4L+e93kXSwizH7uxi27ynD3+ki7MBf0Zv1AQq/HOT+U1D0nSqaPEB45iEPL0Y2dD7y/MOozb2F/oJOTBfexGjudQxnt2E0+ypmTZexnncFl1eui/khcdsdHKvOIAmcibpLEv6jGghIbMBvRA2OcSUoPCaj4ZWN+qBZRLbfx6h4M+p+JRh4p1b35P0SLoNmfmSasBi/nV8Qc6Yd3fhZmEZVYh5djUW/upciWMYKVo9ldA3GAxYyat4pGvffpenYc7IOPmXEm08Z8PoTYgXb+wTf1/+CZPh6FHaJqHmkoe41GTXPTOSqNKTOqUgcJyDrPRq57UjkfUuRZh9Do64Nw1lt6M28gm79JQwbLtGr8TKmsy/juLiN/hs7iV19E+2Ud1E4pyBzTUfikoGWby5Kj8mo+2Sj7p2FxGc6nkdO43bgWxT+JUIy/KInbxFewcUmvQc2PDIe8grxp9tRbT+OblgVplFVogDm0bUvRTCLqMYipg7zqCqM+s9n0OxT1O77mYYPnzHpnScMfO0hUbvuE77zAeG7HuG26xmysZtQc5qApl8u6j556IcWYTu4AfvE2dgMbcAgbAZSQRDHMSj6JCFLfAv18svo119Gt65VfOrXt6I/8xImzVdwX3aThM13cGlsQRZch9xxDNb9SomZvJw+AyuQu2WIAijcc7FqepPwy7dRi61Dyyf7qY3zMIue/CXucWUD7AbOwyJjPcM6H2Fevh2D0FJMIysxi6rCLKqmW4SYehxHzRcbFpPICgz6zyOu8QTle+9Qe7SLlH2Pidv9kJAd9+m77QF9tz2kz/ZnyCdsReEwHvN+FfhMWkZI3kZ8MlbhOn4hbslL8ctej1f6SowiS5A4jUfmkopswmF0qq6gV3MJ3eoWtGsuol17Eb36S1jPvUrwmluErepAc9wbSGxHoRpWS1j6EuziilGo0lH3ykLpmYVu0iv073yMfuYyNHwK6OWVNLgnf4kqoabCKn4hTg1vMujWA/THLMIotBiTiHJMIiowi6zGNLIai7iZhJa9imFYGcbhZejHzSOq7geK9nRS8cFTxrz1iIhd9/Hb+jNem+7hueEO9lu6kCdvQ2qXyOCqVxlUvbu7bPXIFk3Yr8JCjaMrCMpZh11CLUq3JGT+FajnnsCg4gJa5T+hUXkejaoLqNe2YDTnMh4rrxO9rgPz0h/FhCfkAoO+eWj55qDumYW6kAOEKIiqIuJSJ9bz30TNZwbGfpm1PflL+vSv2W4SOxe/rceJOnMdjbh6eoUWYxxeLprQqopej6rFb/oucTpjFFqCbsxcQqp/YPprnVQff8aw1x8QsO0eHpvv4rL6DqrVHdhueIw8ZTtK52Q0/bqPKJ3AAnQDZ6DtPw2dgDy0+05DzTMHLb+ppK76FO9Jy5D0HovaiDcxKv4JzeIzaJSeQ73iJ5RVF9Cf24rbpjYCl7fjNu8aiujZKHqPRKnKQOk5uZv8CwGkftPx++Q8bm98jty3CH2/jFd78pf0jqn6xDBmLpHvnyLw6Bk0xClMoUjSKLQUI2EoEVRCQP4W/GfsFHtyoWXVim4msOp7CnbfpvSTZ8S/eh+vjXdwWn+X3is6cV55E5u191Ek7xD3trbfFHQDC9DwnyZ2cr0iKkQxBeLafnlieWsWV4VJdBkK1xQUEQvRyfkBzWknUS88jUbZWRSlZ9FtuoTdmsu4zb+G//IONBO3ILEajMItFXXPTDH8u0XIQuo1BdWeL/E7fg5F31J0fdI/+wN5JBKJTXTlGYP+c4n9sgXPPV+iEViMfvAMsQ01DClBP7AQywENRFS/heeULdgOa8Z59DxkQTV4l31H3ludFHzSReS2e3htu4PdmjtYLblF7yU3MF15D3nyTuR9ksQsLdTrvSJLSZl1hJi6HzDJ+BR53BbUfQvQ8p2C0jMHpbB/3TOQ+1WgPfE4evnfozn9BIoZpzCddxHD5ovYrriEXXMrfVffRnfSPgz8M9H2yUApiiCcNJNR85qMzCMH+9VHCPzxCsqwSvR9Mn+qkUikLwWIt41XM4+suGoQP5eYH9vos/4jNAMK0Q+ajkFQoUjeKqFRDP3Akj145+/AI2MdzkmL6DVyJV7F35L7dic5x54StOUeHjvu4bz5Ds4bb2Kz4BYmK+4hT9mB3HEC2j45Yh8/puED4hdcRX/aaZTTziDNOYd84GtoeGaLtb3SIwvDiCI0A0vRSDyM3cyzGFWcQjb1JDZLL2E0+xyqLa24LL+I19Kb6GUfwW5UM85J85A5J6Puno6aR4Z43Eo9srGe/w5B59pRRtei65PdlhgU9C8XsaNHT9W2iKi8oZ+wgH5n2rFb+T4a/tMxDC7EILQEncAZ+JfuxqtoD/4zdhFQvY+w+kM4jV2IY9EhXIq/JeONTiYdfYLvpk5ctv+M595OXLd24LD6FoZL7qFM3onCJQUt7yw0Q+uxzjuJXuE5tCovIqtuRVJ7FWnxVRShDai7p6EdXIwqbwt6MfVojDqEbfVpTBvPI592EouFF3BY04Lz+lZ8t1/Bd1MHRoWfYz60ieCaNzCMmC6SV/cWckC2KIBV416CL3agjK1Fzzfn1sCBSbp/EMA8tPyG3sB5RJ69Qe/l76HuNRWnMfPxLtiJKnsjvqV7UBXsxrdwFz6V+/CuOIhfyR4cyo7Rp+kUSW/dZfyRxwS81YnT9ruo9tzBZcct3HbeRn/xLfSmHcF6/FL0Q/NRBNUjSf4eadEFJLXXkMzpQLLsIfItf0U2fDU6HqnYT1qHa+UBTCesRzvlA6xmnsd2ySVMFl/AYslF7FddwH71JTxfbaPv23ewWXoe+4z1BJTvxitvA72Tl9InYw1WI2Yjdc3AqmEvfVs6kMfUiALExmb9yx1ChLW1umlw4VW9uGYiTrbjsOYwGr5Cr52Ptt80tPzzMQgvRVXwKr5Fu/GqeBvfuvdwTFqK9dT9WGV/yqitN0g8+AjV8g4cN3ai2t2J3eobmM29jG5TG/LETUgdx3VXggHFyMd8haTwMpIFd1Fu6sLmEHh+C+rxDUjtx4h712biCrQiatAedQCL6jNYNZ9DnvkF5nPP47zxEr1XX8Jpy1VUa25hUPQlFqMX4TxxMUrVRBSuqchV6cjdM5CqsrGc8zZ+59qRR1ai65PVNsT3by5YhSRoFlx4Ti9qFuFft+Cy/ROUvvno+eehH1CAXt8CdAMKsEmcT2DZHnyq9+NXcwCrAVWoR8zCevInjNjYxsh3HuG27Bb2625js+Y65vOuYFB1Ae2m6yjGbkLuMBYNr0zUPSahjFmNrKoTxavg9wPk34fg5e8jsU9C4TpRTIBavlmo9S3BJPUYellfYFZ9EmX2VxjWnMJi0TkctlzBenkrHsvvYlr5FUbRJWj7ZiB1Go+ae7r4O5QemUjds8Vt7f1DK3JhrujdIwkKMA2eflwnrJ7gI6fxOfA9Sr8CdIUjKyAP3YBpoml5T8UhcT6qvB3ohpWg4ZmBMrgGi8xPGbn5BgN33sVpcTvmS25g2HQFHaFqq72A1ux2FMnbkImezRTrdIVrGoqENWgvOoPf22dxr9yOxDkDWZ9kJI7jkbimolClohPZhFPBD6ilHkc37yvUcr9FkvMd8pJTWKy7jPnCKwRseYx5zedIbIYjc0hE6TZRFEDIA4IAEs9cXPZ8geqT08h9Z6Djlfb5H8gLMA+Z8apOcC3e248T+nUr8uAidPxy0fGfgo7/VHH0pOufj5b/NPpkrhWztbZQcYXWYjzpIxJWXSVu023sF17HqFloYFrRqW1Bq/oiGnNuopy4E5n9aNS8MlAX3ueTg6xPCtI+aUgc05HYTkDaJxm5ayrOibNxGd2MxH4CLik7ca34CUXa50hTP0Oa9Q2S/BOo153HdO1VrObdIGLvXzAuPojEeijyPmNRvBBA+bsAvgX4HL+A/WvHkXvmo++Ttrsnf4lF8JRag6Bq7Ge/Sb+r91DrX4u2T7ZYuIjmnycWKvohhaimbkHTO0c80tSCazFJ/ZDIOeeJWtOB/aJ2jOa1oVV/qbt2r76AxrxbqGXsQmafiNR5IlK3NDR8c1H3yhFrdpnrRGRuE5E4jEfDYxIpSz8kOHctEsdJJDR9g0XxOZRpXyKb9AXS3O+QzjiFsu48hsuv4b3uPtH7/4peyiokloOQ9RkjRs7vEaDmnoEisorgS3cwmf0aah5TMPKZWNOTv8TMb9Igg+BSeqWvJE5oHNKXo+klCJD7QoTuSk03cBo2w2d3T19eCGCWcpSwprNErGzHfkEbxs3X0Kq7hHrNRTQqL6C+qAPNKa8hNR9GaN46Yku2ohCSk0saEpdJSPqkIHdLw2ZAJZH567DoV4zEcgQ+KWsZuqwNg+mnkad/iTTza2QFJ5CWn0VSdwm9BTfp/9pzQt96iFrEDCQ2w/4YAe7pyN3S0UlaREjnI7ST5qPlmYu+x8hBPflLhBbRICCvSzumgdCLt7BauA81rxxRAB0hFwjmOxUd36loeE4WpivdAgTVYjjhCKGzThO58jq951/FsLEV7fpWsWlRr7qA5vK76Ba9gcR8GL0H1xAxYxPe6StwGb8Qp1HNYkcYkL0Wn7Rl6AbkiuSNwkuYsuEcbg2XMZh+Ekn6V0infIes+DTS6osomttxXXef0YfBbfX3SBwSkTmMRO48XiyH1VRpoggS18lYz96L38WbKISS2yPtiZFNvHlP/iIM/HM+F+7VXPd+jecnZ5H7TxNnbH8QwK97K4gR4ZONWlAN+uPeJ6zpDBEr2rCfdwWjWYIALWjWtaBeewmdtXfpVbUXifUoZM5JSJySUPPOwSiiBJOYcowii9HwzREHIxLbRAyDCpi2/ntill3HpqYFjSnfI83+RvS+rOInZE1XMVrWydC9vzL6MzCatASJ+SAktsOQOo1DqZqEmrsgQIY4Ivc6dg6HPcdReOSh4576xz7gb9HLJ7NGJ7CMXtM3EXLjPhrDZ6HlnYOOIMILEwQR6nmhZu+OgBoMJhwmZPZZIlZcx36+IEALWoL3a1tQq72Izrp7mFS/gcRyCHK3ZJQek1Co0pALkxynCUgcJiDpPQaJQxLuI2Yxdf1J+q+4hdOsqxgUnUE+5ftu8mXnkDe0orO4A78dT5n8KQS/fhmZSzJyh1H0jp6GYUAmcueJYgQo3DLQHNFMSMdD9HJWoOGVj577hKqevF/C0TtRpe+f95tGZA0BrZ1YL3kHhWcWWj453ZHgk/OCfLcAQlkrRkDSEUJf5oBr6DdeQr32Imr1LajNvIR64zU0x25HIRxRHpNQ98xAwysLTa8sdPymYhZRit/4ZYyddZTkDW34LmjHvuEKvUp/QpH3I/KCk0grLiCdeQXtBbdw2/SI1CN/ZcKPYJK6GInpQLTdJ+A/ugGvEfXIhV5AlY7ELQvH9R8QcOE68sAZ6Hhm/sXWY4hLT95/gJFf5nFN3xKsVh7B7+ItlOGlaPnkoimQF4R48RRM00uoA6oxSHqfiNlniVrVjv38qxg0XUa94RLqMy+hnNmCrOI8JhnHiC05RGz5EWLKPySq7CNiqj5lYMM3DF9wmkGvtOLT3Ip5VQvmVRfRKTyLsuAk8sLTyMovImm4inLhLew2PGTcwd+YchI8V3yExGYk0t4j0HAdh9ugKqwjCsUkqFSlo4yuJPrGPSwW7EXhPgU9r9SPevL9VzDynpCkG1CIxoBG+t64j2ntLhQeOd0CeGe/NE3v7O5CKEQQ4D3CGk8StaINx4VXMZpzBc1Zl8UIUNZfRF59HlneD8jHHUWR+C5qYz9APfkYmmmfo5n5NZrZ36I37QQGhafQKTiBctoJsekRyEsrX5BfcBPrdQ8Z8c5fyP8O+h26gsInozvzO44Sk5+QW+QCefc0JKps7BbtI6z9ZxQRJWh6T8FINXJ0T77/Cq6urko9n8kt6j6FWC59lwChgQgvE8990fN/I4KWRzpqQVViBIQ2niBq5TVcXmmj19wraIpR0IpaXQuyyvNIZ5xEmvE50vFHRZMlH0Oa+imy9C9QTP4aRe53KIW9nv89shknkZWcQ1rVgnTWVTQX3sJhwwMS9/+FvK+h/9FbaEUXIrEahkwg32ecODxRqtLEo0+pykQtvp7Y2w+xmL0bhSoHXfeJZyMkEnlPvv9XmPmMT9XtW4gyvAL/K3exX39YrKeFhKjpnSXu/ZcCBFahP+E9wppO0m91O6ql1zGbfxXd5qtozLqCesNlZDUXkJaeQTrtB6TZXyHN/AxZ5hdIs75Clv0t8qk/dCe56SeRFp9CUvETktpW5M3X0VvSifeWJ0x8969M/h4ijtxAO64MieXwbvJOo5G7JItDEEEANffJYunrve9rgn66jky4TfbJxcwjcUxPnn8XQnOk75X2jYZ3AQbTNhDx6Dk6qYtRuGeJod8tQBaa7mkoBQHGv09E82li17bjsbwdi8XXMZh/He0511CffQ3ZzFak1eeRlJ1BWnQKSeEJpIUnkRWeQlZ0BlnZT0gqW5BUtyCpbUHRdA29RR04bXhA/N5fmHQMxp4Cz63foQzOE49TqeNo5E6JKJwniJ2f6H1VGhLXLCyKNjHwyTO0UuahdM9FzyP5054c/yHMnEcG6PjmIPfIw37HcYIu30bRrxINjyw0hEgQbmfdJ6EWVInG2MOEzj5DwqbbBK3twGXVLXovu4n5K+0YLWpHZ85V1BpakdddRFFzQTRl7UWUdS0o6ltRm3UVjeY2dBfcwHxZBx7r7xO7+xmjDsOIbyD4yB3MSrYhcU5BYpf4gvxoFM5JKF0nvSCfgcw1A61hsxh87ym2y95BKlyUeGX8atJnqGdPfv8m9PIc36DlNw15QBE+P7bh/dlZpAHTUffsnrRoemaKuUE+6m0sS04xbOcD0g48Y+KBLhLf6iJh9xMitj/EZ8PP9FnVid2yDmyX3MJ6yW1sl3div/Iufdbew3PTQ4K3PSHytV/otx/6HYXQj39D9WYbJuV7UAQJXh+BxGF0N/k+Y5G7THgR9ukoPDKQqyYjCy0j7lw7PsdOI/HIRtNnCr3cx/79q7B/BGEr6HokHxUKCOWAeoLa7+F24BskfQURureDptBw+E1Hlvo+dht/JulHyDkDo76A0EN/xXX3L9hufIzFqvuYLL9Lr6V3MF56B5OVP2Ox/hE2O7pweOMZLm89xGn3DXqv/RHjhnfQHrcAuXC1ZZ2IpPdoZI6jkQn7vc8EcbSmdOv2vNBTyFSTkQQXEfnZT0QK+z54Bmqeuei6TzjSk9O/G336RPbS8Zx0Sc0zD42Rc4i414Vq/9dIAwrESBBU1vDIELOwLKwI3WF1GI6YifaQepT9a5FG1yIJr0QSUo40pKzbgsuQhJQhCatAElGJNKocWdh0ZN4ZSBzGILEagcRG8Hh3uAvkhUwvd0lC4TLxRdgL2T4DmZtAvpTIT87Sr/0uithKlCohQU9sdfCON+7J5z8EG9UwNy3v9NtKjylojWgm6Po9PD89jSy6HKV7NppCgySUxU7juxduNVTszaXWQ5DZDP4bG/QvZt1tUivBBiMVft5uBDL7kWJZK3cS7gjHoXAZL2Z5kbjQ5Ajk3SaJnhcSnnDcxf94hZiLN5HHCXeCWWh5Trpj5TXYvSeP/xR6uY7w0/LK6FS6T0HRvw6/E9cIvXgTnQkLkLoJiTH3ZXGkphIWKXgqBTXXZJQvTCEcVyIZwZPdJhey+IvXSufxoomvxfe8IP0i3JVu6agJe16ViUSVg3HuSobfuEfYV+eRhxYhd81EwyPtZ0PV4L491/+nwNh9pJeWV9oVdc8pyPwLcNzzGRH3n2C/7B3kISUoVFnihYR4KSGMpd3TURfO5pcmEBHESRW92C2U8PqFCceZYGJyE1rabuLCe4X5nkjcdTLy8HLcNx9l2JPnOG88gsQjV/xsDY+JN8xdR/j1XPefCgfVAGsdj5TPhdJSqsrBsHgT4dfuEHrmGiYzNiALKEAuVGIeWagL9/QeGWKOUHfvFqR7UpP+QpwMNMT/TxO9rOYmPLvP89/JK1QCcSHcM5EFTMesfCsxlzqIvNqJXu4yJE5Cc5WLhnvKt8aO/f7cL0n/PcTb2qrpe4xdKVSGClUuiohSbNceJuTmfQK+b8Wydidq0ZVimMrdMlG6CxExGTX3TNTdhX9nir26IEr35EYgL0RE+gsB0sVWVuaSgcQ9F0V0FZZ1rxJ08hoRnQ+xW7EfWWABMud08R5QTzV+va+v7z//74j03EeN0vFMv6ThnY/MNQvlwDpsNx8l+Eon4S0duO45jknhRtQTZiLxny6SkbpNRuY6WbyskLumiyZzeWGuGUjcspH4TUMjoQ6Tok247P2KsGt3CWr7GZstH6AYUI2kT5p4na7hkXzFwHn42J7r+qci0itSX081bq6GR+pDNa8pIjnhOz/G5ZtxP3yC0La7RN64R9APl/F480scl+zHsmYnJjPWY5S7HKOcFfSasQHzulexW34Qt7e/IujHK0R0PCD41kNcj53BqHqrmOSECbJwxGm4TXyko0qc5+Y2wLDnev7bYNIn1l7XY+x8Lc/Um8LIXOmWhUyVjTK6Av2cldiuPoTXkR8I+KGVkJabhF/rJKLtLmFtdwkRPNzagfeJK6gO/4jt2vfQy1uDPKYSiWs2Mufu7aOhSr6t5zZ20T9tr/9HIHjFUDVmkpYq+aC6KvmBhvDtDyHknScjVeUi9c1HFlaCsn8Nagl1KAfWooitRh5aJn6hSSAsdcpA4ZyBulsGai5JjzVcxhwxUA3PdvAO+3MKm38WjJxDLfRcR4w0cB+7UMdtwgdabsmXNFyTH2m4pYhZ/uXx6DYJ9e6a4bGm64TL6q5jPtR2S1ys7TRytIVDxJ/zlx//E7Amy1dhZBNhbqQa6GboOjTI2H10pJH7uCgD1xHBBo5DVYbWwZbT4uPVer7vf/FfiP8DNBgMghWt4T0AAAAASUVORK5CYII=" alt="" width="24" height="24">
-      <span class="brand-name" data-i18n="brand">NiceDevin音频转换器</span>
-    </a>
-    <nav aria-label="页面导航">
-      <a href="#features" data-i18n="nav.features">功能</a>
-      <a href="#formats" data-i18n="nav.formats">格式</a>
-      <a href="#privacy" data-i18n="nav.privacy">隐私</a>
-      <a href="#about" data-i18n="nav.about">关于</a>
-    </nav>
-    <div class="seg-group" style="display:flex;gap:8px;margin-left:auto">
-      <div class="lang-seg" role="group" aria-label="语言 / Language">
-        <button type="button" data-lang="zh" aria-pressed="true">中</button>
-        <button type="button" data-lang="en" aria-pressed="false">EN</button>
-      </div>
-      <div class="theme-seg" role="group" aria-label="颜色模式">
-        <button type="button" data-mode="auto" aria-pressed="true" data-i18n-title="theme.auto" title="跟随系统">
-          <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="2.5" width="13" height="9" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M4 14h8" stroke="currentColor" stroke-width="1.2"/></svg>
-        </button>
-        <button type="button" data-mode="light" aria-pressed="false" data-i18n-title="theme.light" title="浅色">
-          <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="3.1" fill="none" stroke="currentColor" stroke-width="1.2"/><g stroke="currentColor" stroke-width="1.2"><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3 3l1.4 1.4M11.6 11.6L13 13M13 3l-1.4 1.4M4.4 11.6L3 13"/></g></svg>
-        </button>
-        <button type="button" data-mode="dark" aria-pressed="false" data-i18n-title="theme.dark" title="深色">
-          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10.8 2.6a5.6 5.6 0 1 0 3 8.9A4.8 4.8 0 0 1 10.8 2.6z" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
-        </button>
-      </div>
-    </div>
+<main class="card">
+  <div class="ico" aria-hidden="true">
+    <svg viewBox="0 0 24 24" role="presentation">
+      <rect x="2.5" y="9.5" width="2.6" height="5" rx="1.3"></rect>
+      <rect x="7.4" y="5.6" width="2.6" height="12.8" rx="1.3"></rect>
+      <rect x="12.3" y="2.6" width="2.6" height="18.8" rx="1.3"></rect>
+      <rect x="17.2" y="7.2" width="2.6" height="9.6" rx="1.3"></rect>
+    </svg>
   </div>
-</header>
 
-<main id="top">
+  <h1>NiceDevin音频转换器</h1>
+  <p class="sub">
+    中文页面与英文页面各有一个地址，按你的浏览器语言自动进入。<br>
+    Chinese and English live on separate addresses; we pick one from your browser language.
+  </p>
 
-<!-- ===== Hero ===== -->
-<section class="hero">
-  <div class="shell hero-grid">
-    <div>
-      <h1>
-        <span data-i18n="hero.h1a">把音频换一种格式，</span><br>
-        <em data-i18n="hero.h1b">不出这台电脑</em>
-      </h1>
-      <p class="hero-sub" data-i18n="hero.sub">给 Windows 用的本地音频转换器。丢进一个文件，选好格式，剩下的计算全在你自己的机器上完成。</p>
-      <ul class="hero-points">
-        <li><span class="dot"></span><span data-i18n="hero.p1">六种输出：mp3 / flac / wav / m4a / ogg / opus</span></li>
-        <li><span class="dot"></span><span data-i18n="hero.p2">视频也能进，只取里面的音轨</span></li>
-        <li><span class="dot"></span><span data-i18n="hero.p3">WinUI 3 原生界面，Windows 10 与 11 通用</span></li>
-      </ul>
-      <div class="store-badge">
-        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1.6 3.4l6-1.3v5.9H1.6zm6.8-1.5l6-1.3v7.4h-6zM1.6 8.6h6v5.7l-6-1.1zm6.8 0h6v7.2l-6-1.2z" fill="currentColor" opacity=".9"/></svg>
-        <span><b>Microsoft Store</b> <span data-i18n="badge.state">上架准备中</span></span>
-      </div>
-    </div>
+  <nav class="links" aria-label="语言 / Language">
+    <a href="zh-cn/">中文<span class="arrow" aria-hidden="true">&rarr;</span></a>
+    <a href="en-us/">English<span class="arrow" aria-hidden="true">&rarr;</span></a>
+  </nav>
 
-    <!-- WinUI 窗口模拟：这里是整页唯一允许自己发声的地方 -->
-    <div class="window" role="img" aria-label="NiceDevin音频转换器的界面示意">
-      <div class="titlebar">
-        <img class="wicon" src="data:image/png;base64,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" alt="" width="16" height="16">
-        <span class="wtitle" data-i18n="win.title">NiceDevin音频转换器</span>
-        <div class="wsys" aria-hidden="true">
-          <span><svg viewBox="0 0 10 10"><path d="M1 5h8" stroke="currentColor" stroke-width="1"/></svg></span>
-          <span><svg viewBox="0 0 10 10"><rect x="1.4" y="1.4" width="7.2" height="7.2" fill="none" stroke="currentColor" stroke-width="1"/></svg></span>
-          <span><svg viewBox="0 0 10 10"><path d="M1 1l8 8M9 1L1 9" stroke="currentColor" stroke-width="1"/></svg></span>
-        </div>
-      </div>
-      <div class="wbody">
-        <div class="dropzone">
-          <svg class="dz-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V5m0 0l-4 4M12 5l4 4M4 17v2.4h16V17" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
-          <div><strong data-i18n="win.dropTitle">把音频或视频拖进来</strong></div>
-          <div style="font-size:11.5px;margin-top:2px" data-i18n="win.dropSub">也可以点「选择文件」，文件夹一起丢进来也行</div>
-        </div>
-        <div class="rows">
-          <div class="row done">
-            <div><div class="fname">field-recording.flac</div><div class="mini-bar"><i style="width:100%"></i></div></div>
-            <div class="fdur">4:12</div>
-            <div class="fstate" data-i18n="win.st.done">已完成</div>
-          </div>
-          <div class="row">
-            <div><div class="fname">interview-0822.wav</div><div class="mini-bar"><i id="bar1" style="width:0%"></i></div></div>
-            <div class="fdur">18:06</div>
-            <div class="fstate" id="state1" data-i18n="win.st.queued">等待</div>
-          </div>
-          <div class="row">
-            <div><div class="fname">demo-reel.mp4</div><div class="mini-bar"><i id="bar2" style="width:0%"></i></div></div>
-            <div class="fdur">1:37</div>
-            <div class="fstate" id="state2" data-i18n="win.st.queued">等待</div>
-          </div>
-        </div>
-        <div class="ctlrow">
-          <div class="chips" id="chips" role="group" aria-label="输出格式">
-            <button class="chip" type="button" aria-pressed="true">mp3</button>
-            <button class="chip" type="button" aria-pressed="false">flac</button>
-            <button class="chip" type="button" aria-pressed="false">wav</button>
-            <button class="chip" type="button" aria-pressed="false">m4a</button>
-            <button class="chip" type="button" aria-pressed="false">ogg</button>
-            <button class="chip" type="button" aria-pressed="false">opus</button>
-          </div>
-          <button class="btn-run" type="button" id="run" data-i18n="win.run">开始转换</button>
-        </div>
-        <p class="demo-note">
-          <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.4" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M8 4.6v3.6l2.4 1.6" stroke="currentColor" stroke-width="1.3" fill="none"/></svg>
-          <span id="note" data-i18n="win.note">这是界面示意，点按只会播放一段演示进度——不会读取你的任何文件。</span>
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 功能 ===== -->
-<section id="features">
-  <div class="shell">
-    <p class="eyebrow" data-i18n="feat.eyebrow">能做什么</p>
-    <h2 data-i18n="feat.h2">够用的转换器，不夹带别的</h2>
-    <p class="lede" data-i18n="feat.lede">没有多余入口。打开就是文件列表和格式选择。</p>
-
-    <div class="features">
-      <div class="feat reveal">
-        <div class="fi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h9" stroke="currentColor" stroke-width="1.7" fill="none"/></svg></div>
-        <h3 data-i18n="feat.c1t">六种输出格式</h3>
-        <p data-i18n="feat.c1d">mp3、flac、wav、m4a、ogg、opus，按用途直接选，不用记命令行参数。</p>
-      </div>
-      <div class="feat reveal">
-        <div class="fi"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="2.4" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M16 10.4l5-2.6v8.4l-5-2.6z" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></div>
-        <h3 data-i18n="feat.c2t">视频只取音轨</h3>
-        <p data-i18n="feat.c2d">mp4、mkv、mov、avi、webm 等视频文件丢进来，直接抽出里面的音频。</p>
-      </div>
-      <div class="feat reveal">
-        <div class="fi"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="12" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><rect x="9" y="8" width="12" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></div>
-        <h3 data-i18n="feat.c3t">批量与拖拽</h3>
-        <p data-i18n="feat.c3d">多选、整文件夹一起拖进来都可以；超过五十个会先问你要不要继续。</p>
-      </div>
-      <div class="feat reveal">
-        <div class="fi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h9l7 7v9H4z" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M12 12v5m0 0l-2.2-2.2M12 17l2.2-2.2" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></div>
-        <h3 data-i18n="feat.c4t">右键菜单</h3>
-        <p data-i18n="feat.c4d">Windows 11 一级菜单里直接转；经典「显示更多选项」菜单里也有一项。</p>
-      </div>
-      <div class="feat reveal">
-        <div class="fi"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M8.5 12.2l2.6 2.6 4.4-5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></div>
-        <h3 data-i18n="feat.c5t">元数据保留</h3>
-        <p data-i18n="feat.c5d">标题、作者、专辑这些字段一并带过去，不用转完再手动补。</p>
-      </div>
-      <div class="feat reveal">
-        <div class="fi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14M5 12h14M5 17h6" stroke="currentColor" stroke-width="1.7" fill="none"/><circle cx="18" cy="17" r="2.6" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></div>
-        <h3 data-i18n="feat.c6t">先进临时区</h3>
-        <p data-i18n="feat.c6d">转换结果先落在临时区，点「导出」才写到你指定的目录，试错不留垃圾。</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 格式 ===== -->
-<section id="formats">
-  <div class="shell">
-    <p class="eyebrow" data-i18n="fmt.eyebrow">格式支持</p>
-    <h2 data-i18n="fmt.h2">进得来的，出得去的</h2>
-
-    <div class="format-grid">
-      <div class="format-card reveal">
-        <h3 data-i18n="fmt.out.t">输出</h3>
-        <p class="fc-sub" data-i18n="fmt.out.d">六种，覆盖日常分享、无损存档和进一步剪辑</p>
-        <div class="tags out">
-          <span class="tag">mp3</span><span class="tag">flac</span><span class="tag">wav</span>
-          <span class="tag">m4a</span><span class="tag">ogg</span><span class="tag">opus</span>
-        </div>
-      </div>
-      <div class="format-card reveal">
-        <h3 data-i18n="fmt.ain.t">音频输入</h3>
-        <p class="fc-sub" data-i18n="fmt.ain.d">常见格式都能读，冷门的也照顾到了</p>
-        <div class="tags">
-          <span class="tag">mp3</span><span class="tag">flac</span><span class="tag">wav</span>
-          <span class="tag">m4a</span><span class="tag">aac</span><span class="tag">ogg</span>
-          <span class="tag">opus</span><span class="tag">amr</span><span class="tag">wma</span>
-          <span class="tag">ape</span><span class="tag">wv</span><span class="tag">aiff</span>
-          <span class="tag">alac</span>
-        </div>
-      </div>
-      <div class="format-card reveal" style="grid-column:1 / -1">
-        <h3 data-i18n="fmt.vin.t">视频输入</h3>
-        <p class="fc-sub" data-i18n="fmt.vin.d">不做任何画面处理，只把音轨拿出来</p>
-        <div class="tags">
-          <span class="tag">mp4</span><span class="tag">mkv</span><span class="tag">mov</span>
-          <span class="tag">avi</span><span class="tag">webm</span><span class="tag">flv</span>
-          <span class="tag">ts</span><span class="tag">m4v</span><span class="tag">wmv</span>
-          <span class="tag">3gp</span><span class="tag">mpg</span><span class="tag">mpeg</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 隐私 ===== -->
-<section id="privacy">
-  <div class="shell">
-    <p class="eyebrow" data-i18n="pr.eyebrow">隐私</p>
-    <h2 data-i18n="pr.h2">这个站点不收集数据</h2>
-    <p class="lede" data-i18n="pr.lede">页面只有一个 HTML 文件：字体、样式、脚本都在文件里，没有统计代码，也没有 Cookie。程序的设置与日志则写在你自己的用户目录里。</p>
-
-    <div class="priv-grid" style="margin-top:34px">
-      <div class="priv-list">
-        <div class="priv-item">
-          <div class="pi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.6 4.6L19 7" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></div>
-          <div>
-            <h3 data-i18n="pr.i1t">没有统计，没有 Cookie</h3>
-            <p data-i18n="pr.i1d">页面里没有埋点、没有访问统计、没有第三方脚本，也不向你的浏览器写入 Cookie。</p>
-          </div>
-        </div>
-        <div class="priv-item">
-          <div class="pi"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="9" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 10V7.4a4 4 0 0 1 8 0V10" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></div>
-          <div>
-            <h3 data-i18n="pr.i2t">只留两个本地偏好</h3>
-            <p data-i18n="pr.i2d">浏览器里只存「颜色模式」与「语言」两项设置，用来记住你的选择。</p>
-          </div>
-        </div>
-        <div class="priv-item">
-          <div class="pi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7.4c0-1.9 3.6-3.4 8-3.4s8 1.5 8 3.4-3.6 3.4-8 3.4-8-1.5-8-3.4z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4 7.4v9.2c0 1.9 3.6 3.4 8 3.4s8-1.5 8-3.4V7.4M4 12c0 1.9 3.6 3.4 8 3.4s8-1.5 8-3.4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></div>
-          <div>
-            <h3 data-i18n="pr.i3t">数据在你自己的目录里</h3>
-            <p data-i18n="pr.i3d">程序的设置与运行日志写在你自己的用户目录里，升级不覆盖，卸载也不带走。</p>
-            <span class="path-chip">%LOCALAPPDATA%\NiceDevin\AudioLocal</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="priv-note">
-        <h3 data-i18n="pr.as.t">这个页面不追踪你</h3>
-        <p data-i18n="pr.as.p1">页面是单个 HTML 文件，并在 head 里声明了内容安全策略：外部连接与外部脚本一律不放行，所以没有东西会被送出去。</p>
-        <div class="checkline">
-          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.2l3.2 3.2L13 4.6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
-          <span data-i18n="pr.as.chk">零外部请求 · 零 Cookie · 零第三方脚本</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 关于 ===== -->
-<section id="about">
-  <div class="shell">
-    <p class="eyebrow" data-i18n="ab.eyebrow">关于</p>
-    <h2 data-i18n="ab.h2">谁做的，跑在哪</h2>
-
-    <div class="about-wrap reveal">
-      <table class="meta-table">
-        <colgroup><col class="c1"><col class="c2"></colgroup>
-        <tbody>
-          <tr><td data-i18n="ab.k1">平台</td><td data-i18n="ab.v1">Windows 10（21H1 及以上）与 Windows 11，x64</td></tr>
-          <tr><td data-i18n="ab.k2">技术</td><td data-i18n="ab.v2">WinUI 3（C# / .NET 8），自包含运行时，无需另装 .NET</td></tr>
-          <tr><td data-i18n="ab.k3">转换</td><td data-i18n="ab.v3">内置转换引擎，在本机以独立进程运行</td></tr>
-          <tr><td data-i18n="ab.k4">分发</td><td data-i18n="ab.v4">Microsoft Store 提供，安装包由 Microsoft 签名</td></tr>
-          <tr><td data-i18n="ab.k5">许可</td><td data-i18n="ab.v5">专有软件，版权所有 © 2025–2026 NiceDevin，保留所有权利</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
+  <p class="foot">
+    站点不收集数据，也没有统计脚本。<br>
+    No analytics, no tracking, no third-party scripts.
+  </p>
 </main>
-
-<footer>
-  <div class="shell">
-    <p data-i18n="ft.copy">© 2025–2026 NiceDevin. 保留所有权利。</p>
-    <p class="fnote">
-      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 7.6V5.4a4 4 0 0 1 8 0v2.2" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="3" y="7.6" width="10" height="6.6" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
-      <span data-i18n="ft.note">本页面不收集任何数据</span>
-    </p>
-  </div>
-</footer>
 
 <script>
 (function(){
-  "use strict";
-
-  /* ===== 文案表：中英各一份，key 与页面上的 data-i18n 对应 ===== */
-  var TEXT = {
-    zh: {
-      title: "NiceDevin音频转换器 — Windows 本地音频格式转换",
-      desc: "NiceDevin音频转换器是一个 Windows 桌面工具：mp3、flac、wav、m4a、ogg、opus 六种输出，转换在你的电脑上完成。",
-      "nav.features": "功能", "nav.formats": "格式", "nav.privacy": "隐私", "nav.about": "关于",
-      "theme.auto": "跟随系统", "theme.light": "浅色", "theme.dark": "深色",
-      "hero.h1a": "把音频换一种格式，", "hero.h1b": "不出这台电脑",
-      "hero.sub": "给 Windows 用的本地音频转换器。丢进一个文件，选好格式，剩下的计算全在你自己的机器上完成。",
-      "brand": "NiceDevin音频转换器", "win.title": "NiceDevin音频转换器",
-      "hero.p1": "六种输出：mp3 / flac / wav / m4a / ogg / opus",
-      "hero.p2": "视频也能进，只取里面的音轨",
-      "hero.p3": "WinUI 3 原生界面，Windows 10 与 11 通用",
-      "badge.state": "上架准备中",
-      "win.dropTitle": "把音频或视频拖进来",
-      "win.dropSub": "也可以点「选择文件」，文件夹一起丢进来也行",
-      "win.st.done": "已完成", "win.st.queued": "等待", "win.st.run": "转换中",
-      "win.run": "开始转换", "win.run.busy": "转换中…", "win.run.again": "再演示一次",
-      "win.note": "这是界面示意，点按只会播放一段演示进度——不会读取你的任何文件。",
-      "win.note.running": "正在播放演示动画（{fmt}）——没有读取或上传任何文件。",
-      "win.note.done": "演示结束 · 整个过程没有发起任何网络请求。",
-      "feat.eyebrow": "能做什么", "feat.h2": "够用的转换器，不夹带别的",
-      "feat.lede": "没有多余入口。打开就是文件列表和格式选择。",
-      "feat.c1t": "六种输出格式", "feat.c1d": "mp3、flac、wav、m4a、ogg、opus，按用途直接选，不用记命令行参数。",
-      "feat.c2t": "视频只取音轨", "feat.c2d": "mp4、mkv、mov、avi、webm 等视频文件丢进来，直接抽出里面的音频。",
-      "feat.c3t": "批量与拖拽", "feat.c3d": "多选、整文件夹一起拖进来都可以；超过五十个会先问你要不要继续。",
-      "feat.c4t": "右键菜单", "feat.c4d": "Windows 11 一级菜单里直接转；经典「显示更多选项」菜单里也有一项。",
-      "feat.c5t": "元数据保留", "feat.c5d": "标题、作者、专辑这些字段一并带过去，不用转完再手动补。",
-      "feat.c6t": "先进临时区", "feat.c6d": "转换结果先落在临时区，点「导出」才写到你指定的目录，试错不留垃圾。",
-      "fmt.eyebrow": "格式支持", "fmt.h2": "进得来的，出得去的",
-      "fmt.out.t": "输出", "fmt.out.d": "六种，覆盖日常分享、无损存档和进一步剪辑",
-      "fmt.ain.t": "音频输入", "fmt.ain.d": "常见格式都能读，冷门的也照顾到了",
-      "fmt.vin.t": "视频输入", "fmt.vin.d": "不做任何画面处理，只把音轨拿出来",
-      "pr.eyebrow": "隐私", "pr.h2": "这个站点不收集数据",
-      "pr.lede": "页面只有一个 HTML 文件：字体、样式、脚本都在文件里，没有统计代码，也没有 Cookie。程序的设置与日志则写在你自己的用户目录里。",
-      "pr.i1t": "没有统计，没有 Cookie", "pr.i1d": "页面里没有埋点、没有访问统计、没有第三方脚本，也不向你的浏览器写入 Cookie。",
-      "pr.i2t": "只留两个本地偏好", "pr.i2d": "浏览器里只存「颜色模式」与「语言」两项设置，用来记住你的选择。",
-      "pr.i3t": "数据在你自己的目录里", "pr.i3d": "程序的设置与运行日志写在你自己的用户目录里，升级不覆盖，卸载也不带走。",
-      "pr.as.t": "这个页面不追踪你",
-      "pr.as.p1": "页面是单个 HTML 文件，并在 head 里声明了内容安全策略：外部连接与外部脚本一律不放行，所以没有东西会被送出去。",
-      "pr.as.chk": "零外部请求 · 零 Cookie · 零第三方脚本",
-      "ab.eyebrow": "关于", "ab.h2": "谁做的，跑在哪",
-      "ab.k1": "平台", "ab.v1": "Windows 10（21H1 及以上）与 Windows 11，x64",
-      "ab.k2": "技术", "ab.v2": "WinUI 3（C# / .NET 8），自包含运行时，无需另装 .NET",
-      "ab.k3": "转换", "ab.v3": "内置转换引擎，在本机以独立进程运行",
-      "ab.k4": "分发", "ab.v4": "Microsoft Store 提供，安装包由 Microsoft 签名",
-      "ab.k5": "许可", "ab.v5": "专有软件，版权所有 © 2025–2026 NiceDevin，保留所有权利",
-      "ft.copy": "© 2025–2026 NiceDevin. 保留所有权利。",
-      "ft.note": "本页面不收集任何数据",
-      "win.aria": "NiceDevin音频转换器的界面示意"
-    },
-    en: {
-      title: "NiceDevin AudioLocal — a local, offline audio converter",
-      desc: "NiceDevin AudioLocal is a Windows app for changing audio formats: mp3, flac, wav, m4a, ogg and opus, converted on your own machine.",
-      "nav.features": "Features", "nav.formats": "Formats", "nav.privacy": "Privacy", "nav.about": "About",
-      "theme.auto": "Use system setting", "theme.light": "Light", "theme.dark": "Dark",
-      "hero.h1a": "Switch your audio to another format,", "hero.h1b": "without leaving this PC",
-      "hero.sub": "A local audio converter for Windows. Drop in a file, pick a format, and the rest of the work happens on your own machine.",
-      "brand": "NiceDevin AudioLocal", "win.title": "NiceDevin AudioLocal",
-      "hero.p1": "Six outputs: mp3 / flac / wav / m4a / ogg / opus",
-      "hero.p2": "Video files work too — audio track only",
-      "hero.p3": "Native WinUI 3 interface, runs on Windows 10 and 11",
-      "badge.state": "coming soon",
-      "win.dropTitle": "Drop audio or video here",
-      "win.dropSub": "Or click Select files — whole folders are fine too",
-      "win.st.done": "Done", "win.st.queued": "Queued", "win.st.run": "Converting",
-      "win.run": "Convert", "win.run.busy": "Converting…", "win.run.again": "Play it again",
-      "win.note": "This is a UI mockup. Clicking only plays a progress animation — no file gets read.",
-      "win.note.running": "Playing the demo animation ({fmt}) — nothing is read or uploaded.",
-      "win.note.done": "Demo finished — no network request was made at any point.",
-      "feat.eyebrow": "What it does", "feat.h2": "A converter that does the job, and nothing else",
-      "feat.lede": "Nothing extra — just a file list and a format picker.",
-      "feat.c1t": "Six output formats", "feat.c1d": "mp3, flac, wav, m4a, ogg, opus — pick the one that fits, no command-line flags to memorize.",
-      "feat.c2t": "Audio out of video", "feat.c2d": "Hand it an mp4, mkv, mov, avi or webm and the audio track comes out.",
-      "feat.c3t": "Batch and drag-and-drop", "feat.c3d": "Multi-select files or drop whole folders. Past fifty files it asks before going on.",
-      "feat.c4t": "Context menu", "feat.c4d": "Convert right from the Windows 11 main menu, and from the classic Show more options menu too.",
-      "feat.c5t": "Metadata kept", "feat.c5d": "Title, artist and album carry over to the new file — no retagging afterwards.",
-      "feat.c6t": "Staged before export", "feat.c6d": "Results land in a staging area first; only Export writes into the folder you choose.",
-      "fmt.eyebrow": "Formats", "fmt.h2": "What goes in, what comes out",
-      "fmt.out.t": "Output", "fmt.out.d": "Six formats, covering sharing, lossless archiving and further editing",
-      "fmt.ain.t": "Audio input", "fmt.ain.d": "The common ones, plus a few rare ones",
-      "fmt.vin.t": "Video input", "fmt.vin.d": "No picture processing at all — just the audio track",
-      "pr.eyebrow": "Privacy", "pr.h2": "This site collects no data",
-      "pr.lede": "The page is a single HTML file: fonts, styles and scripts all live inside it, with no analytics and no cookies. The app keeps its settings and logs in your own user folder.",
-      "pr.i1t": "No analytics, no cookies", "pr.i1d": "No tracking pixels, no visit counting, no third-party scripts, and no cookies written to your browser.",
-      "pr.i2t": "Two local preferences", "pr.i2d": "All your browser stores is the colour mode and the language you picked.",
-      "pr.i3t": "Data in your own folder", "pr.i3d": "The app writes its settings and run logs to your own user folder. Upgrades don't overwrite them; uninstalls don't take them.",
-      "pr.as.t": "This page doesn't track you",
-      "pr.as.p1": "The page is one HTML file, and its head declares a content security policy: no outbound connection and no external script is allowed, so nothing can be sent out.",
-      "pr.as.chk": "Zero external requests · zero cookies · zero third-party scripts",
-      "ab.eyebrow": "About", "ab.h2": "Who made it, where it runs",
-      "ab.k1": "Platform", "ab.v1": "Windows 10 (21H1 and later) and Windows 11, x64",
-      "ab.k2": "Built with", "ab.v2": "WinUI 3 (C# / .NET 8) with a self-contained runtime — no separate .NET install",
-      "ab.k3": "Conversion", "ab.v3": "A built-in conversion engine, run as a separate process on this machine",
-      "ab.k4": "Distribution", "ab.v4": "Distributed through Microsoft Store; the package is signed by Microsoft",
-      "ab.k5": "License", "ab.v5": "Proprietary software. © 2025–2026 NiceDevin, all rights reserved",
-      "ft.copy": "© 2025–2026 NiceDevin. All rights reserved.",
-      "ft.note": "This page collects no data",
-      "win.aria": "Mockup of the NiceDevin AudioLocal window"
-    }
-  };
-
-  var root = document.documentElement;
-  var TKEY = "audiolocal-site-theme";
-  var LKEY = "audiolocal-site-lang";
-  var lang = "zh";
-
-  function t(key){
-    var pack = TEXT[lang] || TEXT.zh;
-    return pack[key] || TEXT.zh[key] || "";
+  var K = "audiolocal-site-lang", l = null;
+  try { l = localStorage.getItem(K); } catch(e) { l = null; }
+  if (l !== "zh" && l !== "en") {
+    var n = (navigator.languages && navigator.languages[0]) || navigator.language || "";
+    l = /^zh/i.test(n) ? "zh" : "en";
   }
-
-  /* ---- 文案渲染 ---- */
-  function renderText(){
-    var nodes = document.querySelectorAll("[data-i18n]");
-    for (var i = 0; i < nodes.length; i++){
-      nodes[i].textContent = t(nodes[i].getAttribute("data-i18n"));
-    }
-    var titled = document.querySelectorAll("[data-i18n-title]");
-    for (var j = 0; j < titled.length; j++){
-      titled[j].setAttribute("title", t(titled[j].getAttribute("data-i18n-title")));
-    }
-    document.title = t("title");
-    var md = document.querySelector('meta[name="description"]');
-    if (md) md.setAttribute("content", t("desc"));
-    var win = document.querySelector(".window");
-    if (win) win.setAttribute("aria-label", t("win.aria"));
-    root.lang = (lang === "zh") ? "zh-Hans" : "en";
-  }
-
-  function applyLang(next, save){
-    lang = (next === "en") ? "en" : "zh";
-    renderText();
-    var lb = document.querySelectorAll(".lang-seg button");
-    for (var i = 0; i < lb.length; i++){
-      lb[i].setAttribute("aria-pressed", String(lb[i].getAttribute("data-lang") === lang));
-    }
-    resetDemo();
-    if (save){ try { localStorage.setItem(LKEY, lang); } catch(e){} }
-  }
-
-  /* ---- 主题 ---- */
-  function applyMode(mode){
-    if (mode === "light" || mode === "dark"){
-      root.setAttribute("data-theme", mode);
-    } else {
-      root.removeAttribute("data-theme");
-    }
-    var tb = document.querySelectorAll(".theme-seg button");
-    for (var i = 0; i < tb.length; i++){
-      tb[i].setAttribute("aria-pressed", String(tb[i].getAttribute("data-mode") === mode));
-    }
-  }
-
-  var savedLang = "zh";
-  try { savedLang = localStorage.getItem(LKEY) || "zh"; } catch(e){ savedLang = "zh"; }
-  var savedTheme = "auto";
-  try { savedTheme = localStorage.getItem(TKEY) || "auto"; } catch(e){ savedTheme = "auto"; }
-  if (savedTheme !== "light" && savedTheme !== "dark"){ savedTheme = "auto"; }
-  applyMode(savedTheme);
-
-  var seg = document.querySelector(".lang-seg");
-  if (seg){
-    seg.addEventListener("click", function(ev){
-      var b = ev.target.closest("button[data-lang]");
-      if (b) applyLang(b.getAttribute("data-lang"), true);
-    });
-  }
-  var themeSeg = document.querySelector(".theme-seg");
-  if (themeSeg){
-    themeSeg.addEventListener("click", function(ev){
-      var b = ev.target.closest("button[data-mode]");
-      if (!b) return;
-      var mode = b.getAttribute("data-mode");
-      applyMode(mode);
-      try { localStorage.setItem(TKEY, mode); } catch(e) {}
-    });
-  }
-
-  /* ---- 格式 chips：单选 ---- */
-  var chips = document.getElementById("chips");
-  if (chips){
-    chips.addEventListener("click", function(ev){
-      var c = ev.target.closest(".chip");
-      if (!c) return;
-      var all = chips.querySelectorAll(".chip");
-      for (var i = 0; i < all.length; i++){
-        all[i].setAttribute("aria-pressed", String(all[i] === c));
-      }
-    });
-  }
-
-  /* ---- 演示转换：只是进度动画，不读取文件 ---- */
-  var run = document.getElementById("run");
-  var bar1 = document.getElementById("bar1");
-  var bar2 = document.getElementById("bar2");
-  var st1 = document.getElementById("state1");
-  var st2 = document.getElementById("state2");
-  var note = document.getElementById("note");
-  var running = false;
-
-  function currentChip(){
-    var c = chips ? chips.querySelector('.chip[aria-pressed="true"]') : null;
-    return c ? c.textContent.trim() : "mp3";
-  }
-
-  function resetDemo(){
-    running = false;
-    if (!run) return;
-    run.textContent = t("win.run");
-    run.removeAttribute("aria-disabled");
-    if (bar1) bar1.style.width = "0%";
-    if (bar2) bar2.style.width = "0%";
-    if (st1) st1.textContent = t("win.st.queued");
-    if (st2) st2.textContent = t("win.st.queued");
-    if (note) note.textContent = t("win.note");
-    var rows = document.querySelectorAll(".row");
-    if (rows.length > 1) rows[1].classList.remove("done");
-    if (rows.length > 2) rows[2].classList.remove("done");
-  }
-
-  function tween(el, to, dur, done){
-    var from = parseFloat(el.style.width) || 0;
-    var start = null;
-    function step(ts){
-      if (start === null) start = ts;
-      var p = Math.min((ts - start) / dur, 1);
-      el.style.width = (from + (to - from) * p).toFixed(1) + "%";
-      if (p < 1){ requestAnimationFrame(step); } else if (done){ done(); }
-    }
-    requestAnimationFrame(step);
-  }
-
-  if (run && bar1 && bar2 && st1 && st2){
-    run.addEventListener("click", function(){
-      if (running) return;
-      running = true;
-      run.textContent = t("win.run.busy");
-      run.setAttribute("aria-disabled", "true");
-      bar1.style.width = "0%";
-      bar2.style.width = "0%";
-      st1.textContent = t("win.st.run");
-      st2.textContent = t("win.st.queued");
-      if (note) note.textContent = t("win.note.running").replace("{fmt}", currentChip());
-
-      tween(bar1, 100, 6400, function(){
-        st1.textContent = t("win.st.done");
-        var rows = document.querySelectorAll(".row");
-        if (rows.length > 1) rows[1].classList.add("done");
-        st2.textContent = t("win.st.run");
-        tween(bar2, 100, 4200, function(){
-          st2.textContent = t("win.st.done");
-          var rs = document.querySelectorAll(".row");
-          if (rs.length > 2) rs[2].classList.add("done");
-          run.textContent = t("win.run.again");
-          run.removeAttribute("aria-disabled");
-          running = false;
-          if (note) note.textContent = t("win.note.done");
-        });
-      });
-    });
-  }
-
-  /* ---- 滚动揭示：整页一次编排，只做一次 ---- */
-  var reveals = document.querySelectorAll(".reveal");
-  if ("IntersectionObserver" in window && reveals.length){
-    var io = new IntersectionObserver(function(entries){
-      for (var i = 0; i < entries.length; i++){
-        if (entries[i].isIntersecting){
-          entries[i].target.classList.add("in");
-          io.unobserve(entries[i].target);
-        }
-      }
-    }, { rootMargin: "0px 0px -12% 0px", threshold: 0.12 });
-    for (var k = 0; k < reveals.length; k++){ io.observe(reveals[k]); }
-  } else {
-    for (var m = 0; m < reveals.length; m++){ reveals[m].classList.add("in"); }
-  }
-
-  /* ---- 初始语言 ---- */
-  applyLang(savedLang, false);
+  location.replace(l === "en" ? "en-us/" : "zh-cn/");
 })();
 </script>
 </body>
