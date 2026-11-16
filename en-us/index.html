@@ -209,6 +209,9 @@ h1 em{
 }
 .store-badge svg{width:15px; height:15px; color:var(--accent-text)}
 .store-badge b{color:var(--text); font-weight:600}
+a.store-badge{text-decoration:none; transition:border-color .12s}
+a.store-badge:hover{border-color:var(--accent)}
+a.store-badge:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
 
 /* ===== WinUI 窗口模拟 ===== */
 .window{
@@ -471,10 +474,10 @@ footer .fnote svg{width:12px; height:12px; color:var(--accent-text)}
         <li><span class="dot"></span><span data-i18n="hero.p2">视频也能进，只取里面的音轨</span></li>
         <li><span class="dot"></span><span data-i18n="hero.p3">WinUI 3 原生界面，Windows 10 与 11 通用</span></li>
       </ul>
-      <div class="store-badge">
+      <a class="store-badge" href="https://apps.microsoft.com/detail/9N3RKLXBRWV9" target="_blank" rel="noopener">
         <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1.6 3.4l6-1.3v5.9H1.6zm6.8-1.5l6-1.3v7.4h-6zM1.6 8.6h6v5.7l-6-1.1zm6.8 0h6v7.2l-6-1.2z" fill="currentColor" opacity=".9"/></svg>
-        <span><b>Microsoft Store</b> <span data-i18n="badge.state">上架准备中</span></span>
-      </div>
+        <span><b>Microsoft Store</b> <span data-i18n="badge.state">获取应用</span></span>
+      </a>
     </div>
 
     <!-- WinUI 窗口模拟：这里是整页唯一允许自己发声的地方 -->
@@ -708,7 +711,7 @@ footer .fnote svg{width:12px; height:12px; color:var(--accent-text)}
       "hero.p1": "六种输出：mp3 / flac / wav / m4a / ogg / opus",
       "hero.p2": "视频也能进，只取里面的音轨",
       "hero.p3": "WinUI 3 原生界面，Windows 10 与 11 通用",
-      "badge.state": "上架准备中",
+      "badge.state": "获取应用",
       "win.dropTitle": "把音频或视频拖进来",
       "win.dropSub": "也可以点「选择文件」，文件夹一起丢进来也行",
       "win.st.done": "已完成", "win.st.queued": "等待", "win.st.run": "转换中",
@@ -757,7 +760,7 @@ footer .fnote svg{width:12px; height:12px; color:var(--accent-text)}
       "hero.p1": "Six outputs: mp3 / flac / wav / m4a / ogg / opus",
       "hero.p2": "Video files work too — audio track only",
       "hero.p3": "Native WinUI 3 interface, runs on Windows 10 and 11",
-      "badge.state": "coming soon",
+      "badge.state": "Get the app",
       "win.dropTitle": "Drop audio or video here",
       "win.dropSub": "Or click Select files — whole folders are fine too",
       "win.st.done": "Done", "win.st.queued": "Queued", "win.st.run": "Converting",
