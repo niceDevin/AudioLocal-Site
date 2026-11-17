@@ -361,6 +361,10 @@ a.store-badge:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
 .checkline{display:flex; align-items:center; gap:7px; font-size:12px; color:var(--muted); margin-top:12px}
 .checkline svg{width:13px; height:13px; color:var(--accent-text); flex-shrink:0}
 
+.priv-more{margin:26px 0 0; font-size:13px}
+.priv-more a{color:var(--accent-text); text-decoration:none; border-bottom:1px solid currentColor}
+.priv-more a:hover{color:var(--accent)}
+
 /* ===== 关于 ===== */
 .about-wrap{margin-top:34px; max-width:900px}
 .meta-table{width:100%; border-collapse:collapse; table-layout:fixed}
@@ -658,6 +662,7 @@ footer .fnote svg{width:12px; height:12px; color:var(--accent-text)}
         </div>
       </div>
     </div>
+    <p class="priv-more"><a href="../privacy/" data-i18n="pr.more">查看完整隐私政策</a></p>
   </div>
 </section>
 
@@ -739,6 +744,7 @@ footer .fnote svg{width:12px; height:12px; color:var(--accent-text)}
       "pr.as.t": "这个页面不追踪你",
       "pr.as.p1": "页面是单个 HTML 文件，并在 head 里声明了内容安全策略：外部连接与外部脚本一律不放行，所以没有东西会被送出去。",
       "pr.as.chk": "零外部请求 · 零 Cookie · 零第三方脚本",
+      "pr.more": "查看完整隐私政策",
       "ab.eyebrow": "关于", "ab.h2": "谁做的，跑在哪",
       "ab.k1": "平台", "ab.v1": "Windows 10（21H1 及以上）与 Windows 11，x64",
       "ab.k2": "技术", "ab.v2": "WinUI 3（C# / .NET 8），自包含运行时，无需另装 .NET",
@@ -788,6 +794,7 @@ footer .fnote svg{width:12px; height:12px; color:var(--accent-text)}
       "pr.as.t": "This page doesn't track you",
       "pr.as.p1": "The page is one HTML file, and its head declares a content security policy: no outbound connection and no external script is allowed, so nothing can be sent out.",
       "pr.as.chk": "Zero external requests · zero cookies · zero third-party scripts",
+      "pr.more": "Read the full privacy policy",
       "ab.eyebrow": "About", "ab.h2": "Who made it, where it runs",
       "ab.k1": "Platform", "ab.v1": "Windows 10 (21H1 and later) and Windows 11, x64",
       "ab.k2": "Built with", "ab.v2": "WinUI 3 (C# / .NET 8) with a self-contained runtime — no separate .NET install",
