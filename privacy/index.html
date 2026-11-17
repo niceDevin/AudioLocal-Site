@@ -147,7 +147,6 @@ footer a{color:var(--accent-text); text-decoration:none}
       <li><strong>你选择的音频、视频文件与转换结果：</strong>只在你指定的位置读写。转换由随程序安装的本地组件完成，文件内容不会被发送到任何服务器。</li>
       <li><strong>应用设置：</strong>语言、默认输出格式、码率与采样率、输出目录、右键菜单开关等，保存在本机 <code>%LOCALAPPDATA%\NiceDevin\AudioLocal</code> 目录下的设置文件。删除该目录即可清除这些设置。</li>
       <li><strong>本地日志：</strong>程序出错时会把简短的技术信息写入同一目录下的日志文件，仅用于在本机排查问题，不随应用发送出去。</li>
-      <li><strong>资源管理器右键菜单：</strong>在设置中启用右键菜单后，本应用会为所选音频扩展名在当前用户注册表的 <code>HKCU\Software\Classes\SystemFileAssociations\.&lt;扩展名&gt;\shell\AudioLocal</code> 下写入菜单项，指向本机安装的程序。这些项只对当前用户和这台电脑生效；关闭开关后本应用会移除它们。</li>
     </ul>
   </section>
 
@@ -195,7 +194,6 @@ footer a{color:var(--accent-text); text-decoration:none}
       <li><strong>Audio and video files you select, and the converted output:</strong> read and written only at the locations you choose. Conversion is performed by a local component installed with the app; file contents are not sent to any server.</li>
       <li><strong>App settings:</strong> interface language, default output format, bitrate and sample rate, output folder, context-menu switches and similar preferences are stored in a settings file under <code>%LOCALAPPDATA%\NiceDevin\AudioLocal</code>. Deleting that folder clears them.</li>
       <li><strong>Local logs:</strong> when something fails, the app writes short technical details to a log file in the same folder, used only for troubleshooting on that machine. It is not transmitted anywhere.</li>
-      <li><strong>Explorer context menu:</strong> when you enable the context menu in settings, the app writes menu entries for the selected audio extensions under the current user's registry at <code>HKCU\Software\Classes\SystemFileAssociations\.&lt;extension&gt;\shell\AudioLocal</code>, pointing at the locally installed program. These entries apply to the current user on this PC only, and are removed when you turn the switch off.</li>
     </ul>
   </section>
 
