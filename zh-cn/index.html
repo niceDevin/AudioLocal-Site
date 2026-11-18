@@ -527,11 +527,17 @@ footer .fnote svg{width:12px; height:12px; color:var(--accent-text)}
         <li><span class="dot"></span><span data-i18n="hero.p3">WinUI 3 原生界面，Windows 10 与 11 通用</span></li>
       </ul>
       <div class="store-slot">
-        <a class="store-badge store-fallback" href="https://apps.microsoft.com/detail/9N3RKLXBRWV9" target="_blank" rel="noopener">
-          <span><b>Microsoft Store</b> <span data-i18n="badge.state">获取应用</span></span>
-        </a>
-        <ms-store-badge productid="9n3rklxbrwv9" cid="audiolocal-site_home" window-mode="full"
-          theme="light" size="large" language="zh-cn" animation="on"></ms-store-badge>
+        <noscript><a class="store-badge" href="https://apps.microsoft.com/detail/9N3RKLXBRWV9" target="_blank" rel="noopener"><span><b>Microsoft Store</b> <span data-i18n="badge.state">获取应用</span></span></a></noscript>
+        <script type="module" src="https://get.microsoft.com/badge/ms-store-badge.bundled.js"></script>
+        <ms-store-badge
+        	productid="9n3rklxbrwv9"
+        	cid="audiolocal-site_home"
+        	window-mode="full"
+        	theme="light"
+        	size="large"
+        	language="zh-cn"
+        	animation="on">
+        </ms-store-badge>
       </div>
     </div>
 
@@ -1042,14 +1048,13 @@ footer .fnote svg{width:12px; height:12px; color:var(--accent-text)}
   applyLang(savedLang, false);
 })();
 </script>
-<script type="module" src="https://get.microsoft.com/badge/ms-store-badge.bundled.js"></script>
+
 <script>
   /* 官方 Store 徽标：跟随页面主题（浅/深/跟随系统） */
   (function(){
     var badge = document.querySelector("ms-store-badge");
-    var fb = document.querySelector(".store-fallback");
+    if (!badge) return;
     function syncBadge(){
-      if (!badge) return;
       var m = document.documentElement.getAttribute("data-theme");
       var dark = (m === "dark") || (!m && window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches);
       badge.setAttribute("theme", dark ? "dark" : "light");
@@ -1060,11 +1065,6 @@ footer .fnote svg{width:12px; height:12px; color:var(--accent-text)}
       var mq = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)");
       if (mq && mq.addEventListener) mq.addEventListener("change", syncBadge);
     } catch (e) {}
-    if (window.customElements) {
-      window.customElements.whenDefined("ms-store-badge").then(function(){
-        if (fb) fb.hidden = true;
-      }, function(){});
-    }
   })();
 </script>
 </body>
